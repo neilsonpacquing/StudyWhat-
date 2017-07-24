@@ -8,7 +8,7 @@
 
 import UIKit
 
-class confidenceSurveyTableViewController: UITableViewController {
+class ConfidenceSurveyTableViewController: UITableViewController {
     
     //var confidenceTableTestData: [String] = ["BRUH","YOU","ARE","DOING","GREAT"]
     //var confidenceSurveySubject = [Subject]()
@@ -24,13 +24,13 @@ class confidenceSurveyTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectsTableTestData.count
+        return subjectsTableData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         print(indexPath.row)
         
-        cell.textLabel?.text = subjectsTableTestData[indexPath.row].name
+        cell.textLabel?.text = subjectsTableData[indexPath.row].name
         return cell
     }
     // when clikced, it will perform the segway link and has a way back
@@ -39,7 +39,7 @@ class confidenceSurveyTableViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextSubjectConfidenceViewController = segue.destination as! MySubjectsTopicsViewController
-        let tappedConfidenceSubject = subjectsTableTestData[(tableView.indexPathForSelectedRow?.row)!]
+        let tappedConfidenceSubject = subjectsTableData[(tableView.indexPathForSelectedRow?.row)!]
         
         nextSubjectConfidenceViewController.currentSubject = tappedConfidenceSubject
     }

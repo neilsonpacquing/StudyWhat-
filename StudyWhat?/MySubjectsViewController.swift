@@ -10,9 +10,10 @@
 
 import UIKit
 // made it global in attempt to call it from other function
-var subjectsTableTestData = [Subject]() //[String] = ["Add/Select Subject"]
+var subjectsTableData = [Subject]() //[String] = ["Add/Select Subject"]
 
 class MySubjectsViewController: UITableViewController {
+    
     
    // var subjectsTableTestData = [Subject]() //[String] = ["Add/Select Subject"]
     
@@ -32,13 +33,13 @@ class MySubjectsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return subjectResults.count
-        return subjectsTableTestData.count
+        return subjectsTableData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         print(indexPath.row)
         
-        cell.textLabel?.text = subjectsTableTestData[indexPath.row].name
+        cell.textLabel?.text = subjectsTableData[indexPath.row].name
         return cell
     }
 
@@ -57,7 +58,7 @@ class MySubjectsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
-            subjectsTableTestData.remove(at: indexPath.row)
+            subjectsTableData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -77,8 +78,8 @@ class MySubjectsViewController: UITableViewController {
                 
                 let subjectStringToAddIntoTableView = subjectAlertTextField.text
                 let newSubject = Subject(name: subjectStringToAddIntoTableView!)
-                subjectsTableTestData.append(newSubject)
-//                self.subjectsTableTestData.append(subjectStringToAddIntoTableView!)
+                subjectsTableData.append(newSubject)
+//                self.subjectsTableData.append(subjectStringToAddIntoTableView!)
 
                 
                 self.tableView.reloadData()
@@ -93,7 +94,7 @@ class MySubjectsViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextSubjectViewController = segue.destination as! MySubjectsTopicsViewController
-        let tappedSubject = subjectsTableTestData[(tableView.indexPathForSelectedRow?.row)!]
+        let tappedSubject = subjectsTableData[(tableView.indexPathForSelectedRow?.row)!]
         
         nextSubjectViewController.currentSubject = tappedSubject
     }

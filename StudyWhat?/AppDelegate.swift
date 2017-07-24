@@ -12,9 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+//    func appStyles(){
+//        let color1 = UIColor(red: 12/255, green: 177/255, blue: 232/255, alpha: 1)
+//        let color2 = UIColor(red: 255/255, green: 48/255, blue: 4/255, alpha: 1)
+//        let color3 = UIColor(red: 255/255, green: 180/255, blue: 4/255, alpha: 1)
+//        let color4 = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
+//
+//    }
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+//        UINavigationBar.appearance().barTintColor = UIColor(red: 12/255, green: 177/255, blue: 232/255, alpha: 1)
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)]
         // Override point for customization after application launch.
         return true
     }

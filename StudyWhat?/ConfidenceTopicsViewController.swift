@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-class confidenceSurveyTopicsViewController: UITableViewController {
+
+class ConfidenceSurveyTopicsViewController: UITableViewController {
     
-    var confidenceSurveyTopicsTableTestData: [String] = ["Good", "💩", "Bro!"]
+    var confidenceSurveyTopicsTableTestData: [String] = ["Good", "💩"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

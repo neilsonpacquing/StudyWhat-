@@ -96,9 +96,9 @@ class MySubjectsTopicsViewController: UITableViewController {
     {
         if segue.identifier == "topicToTermSurvey"
         {
-            let destinationController = segue.destination as! TermConfidenceSurveyTableView
+            let destinationController = segue.destination as! TermConfidenceSurveyViewController
             
-            destinationController.termString = termToPass
+            destinationController.terms = (currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!].terms)!
         }
         else
         {

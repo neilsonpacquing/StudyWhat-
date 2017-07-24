@@ -124,7 +124,6 @@
         <!--Confidence Survey Subject-->
         <scene sceneID="h43-mr-eFJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uFG-gs-zfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="RYL-0C-Dfe" customClass="MySubjectsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="fxe-j5-LDp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -150,13 +149,13 @@
                         <segue destination="V1l-G6-4TQ" kind="show" identifier="subjectsToTopics" id="29d-Uy-y1d"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFG-gs-zfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2345" y="403"/>
         </scene>
         <!--Confidence Survey Topic-->
         <scene sceneID="Hsn-aM-p1Y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YaR-sk-jFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="V1l-G6-4TQ" customClass="MySubjectsTopicsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="P5M-ux-DRz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -182,13 +181,14 @@
                         <segue destination="Qup-sy-U26" kind="show" identifier="topicToTermSurvey" id="SNV-4d-LCZ"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YaR-sk-jFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3129" y="403"/>
         </scene>
-        <!--Term Confidence Survey Table View-->
+        <!--Term Confidence Survey View Controller-->
         <scene sceneID="Lvg-k5-x42">
             <objects>
-                <viewController id="Qup-sy-U26" customClass="TermConfidenceSurveyTableView" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qup-sy-U26" customClass="TermConfidenceSurveyViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vV7-DN-A4N"/>
                         <viewControllerLayoutGuide type="bottom" id="uwF-Vj-Yhl"/>
@@ -205,11 +205,11 @@
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOU-Xw-6As">
                                 <rect key="frame" x="102" y="500" width="171" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="EZ7-mv-Ym7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Save"/>
-                                <connections>
-                                    <segue destination="Eof-Pm-TgY" kind="show" id="DDX-W9-DMn"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-TL-OR8">
                                 <rect key="frame" x="135" y="418" width="105" height="29"/>
@@ -218,47 +218,66 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtA-aR-Zkw">
-                                <rect key="frame" x="16" y="194" width="343" height="24"/>
+                                <rect key="frame" x="16" y="194" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SeR-2u-aWx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfR-gx-XII">
-                                <rect key="frame" x="345" y="73" width="30" height="537"/>
+                                <rect key="frame" x="281" y="73" width="94" height="537"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="ORh-KZ-eQE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="&gt;&gt;"/>
+                                <connections>
+                                    <action selector="NextButton:" destination="Qup-sy-U26" eventType="touchUpInside" id="hKD-M3-Af1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neQ-9H-Sbr">
-                                <rect key="frame" x="0.0" y="72" width="30" height="538"/>
+                                <rect key="frame" x="0.0" y="72" width="94" height="538"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="GYZ-mB-Jd4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="&lt;&lt;"/>
+                                <connections>
+                                    <action selector="BackTermButton:" destination="Qup-sy-U26" eventType="touchUpInside" id="9kw-gf-8tY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aOU-Xw-6As" firstAttribute="top" secondItem="YLK-su-ixk" secondAttribute="bottom" constant="10" id="29v-cF-e1q"/>
-                            <constraint firstAttribute="trailing" secondItem="YfR-gx-XII" secondAttribute="trailing" id="5s4-s8-7vF"/>
-                            <constraint firstItem="aOU-Xw-6As" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" constant="86" id="AuV-VA-Mma"/>
-                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="trailing" secondItem="7sI-oi-6D8" secondAttribute="trailingMargin" id="BDG-qo-8aA"/>
-                            <constraint firstItem="YfR-gx-XII" firstAttribute="bottom" secondItem="neQ-9H-Sbr" secondAttribute="bottom" id="CrO-s6-8Ka"/>
-                            <constraint firstItem="8Tr-TL-OR8" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" constant="119" id="Ftj-Aq-xeZ"/>
-                            <constraint firstItem="YLK-su-ixk" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" constant="86" id="NGv-Ia-IVt"/>
-                            <constraint firstItem="YfR-gx-XII" firstAttribute="centerY" secondItem="neQ-9H-Sbr" secondAttribute="centerY" id="O4x-fA-MlH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aOU-Xw-6As" secondAttribute="trailing" constant="86" id="R3Q-Mz-0ep"/>
-                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="top" secondItem="vV7-DN-A4N" secondAttribute="bottom" constant="130" id="Six-HV-Q6T"/>
-                            <constraint firstItem="uwF-Vj-Yhl" firstAttribute="top" secondItem="aOU-Xw-6As" secondAttribute="bottom" constant="70" id="TTy-i2-xWg"/>
-                            <constraint firstItem="YLK-su-ixk" firstAttribute="top" secondItem="8Tr-TL-OR8" secondAttribute="bottom" constant="13" id="Ue9-Js-PEB"/>
-                            <constraint firstItem="aOU-Xw-6As" firstAttribute="top" secondItem="YLK-su-ixk" secondAttribute="bottom" constant="10" id="Znw-vI-VWc"/>
-                            <constraint firstItem="YfR-gx-XII" firstAttribute="top" secondItem="vV7-DN-A4N" secondAttribute="bottom" constant="9" id="izC-ED-B9s"/>
-                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" id="jJE-HV-RZn"/>
-                            <constraint firstItem="neQ-9H-Sbr" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leading" id="og1-fp-W6v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8Tr-TL-OR8" secondAttribute="trailing" constant="119" id="pSg-fJ-46C"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YLK-su-ixk" secondAttribute="trailing" constant="86" id="pgW-7o-z1P"/>
-                            <constraint firstItem="uwF-Vj-Yhl" firstAttribute="top" secondItem="YfR-gx-XII" secondAttribute="bottom" constant="8" symbolic="YES" id="trY-l0-tvd"/>
+                            <constraint firstItem="aOU-Xw-6As" firstAttribute="top" secondItem="YLK-su-ixk" secondAttribute="bottom" constant="10" id="5Zo-ZP-1g9"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" id="6uz-nT-kHs"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="top" secondItem="vV7-DN-A4N" secondAttribute="bottom" constant="130" id="9aj-Vu-ncu"/>
+                            <constraint firstAttribute="bottom" secondItem="YLK-su-ixk" secondAttribute="bottom" constant="177" id="AFs-Ra-5O4"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="centerX" secondItem="aOU-Xw-6As" secondAttribute="centerX" id="Bec-rQ-7Wr"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="top" secondItem="vV7-DN-A4N" secondAttribute="bottom" constant="9" id="F5N-K1-Q6g"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="leading" secondItem="aOU-Xw-6As" secondAttribute="trailing" constant="8" symbolic="YES" id="Ir1-uA-JQK"/>
+                            <constraint firstItem="neQ-9H-Sbr" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leading" id="W0p-fL-Nf4"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="centerY" secondItem="neQ-9H-Sbr" secondAttribute="centerY" id="Y67-y2-Wsh"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="centerX" secondItem="YLK-su-ixk" secondAttribute="centerX" id="Zet-T4-8l4"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="leading" secondItem="YLK-su-ixk" secondAttribute="trailing" constant="8" symbolic="YES" id="daE-K5-tuD"/>
+                            <constraint firstItem="uwF-Vj-Yhl" firstAttribute="top" secondItem="YfR-gx-XII" secondAttribute="bottom" constant="8" symbolic="YES" id="gx4-FR-FSu"/>
+                            <constraint firstItem="8Tr-TL-OR8" firstAttribute="leading" secondItem="neQ-9H-Sbr" secondAttribute="trailing" constant="41" id="ick-1m-8NR"/>
+                            <constraint firstItem="YLK-su-ixk" firstAttribute="top" secondItem="8Tr-TL-OR8" secondAttribute="bottom" constant="13" id="lNi-U2-6SW"/>
+                            <constraint firstItem="aOU-Xw-6As" firstAttribute="top" secondItem="YLK-su-ixk" secondAttribute="bottom" constant="10" id="mFO-qG-08V"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="trailing" secondItem="7sI-oi-6D8" secondAttribute="trailingMargin" id="mgG-zh-1Gb"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="centerX" secondItem="8Tr-TL-OR8" secondAttribute="centerX" id="nHF-pN-a5i"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="bottom" secondItem="neQ-9H-Sbr" secondAttribute="bottom" id="nVf-Dz-i6E"/>
+                            <constraint firstAttribute="trailing" secondItem="YfR-gx-XII" secondAttribute="trailing" id="pyO-cB-IQj"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="leading" secondItem="8Tr-TL-OR8" secondAttribute="trailing" constant="41" id="zAg-OV-7kh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="Save" destination="aOU-Xw-6As" id="mA8-OH-fsf"/>
                         <outlet property="Score" destination="8Tr-TL-OR8" id="XAp-aP-PKk"/>
                         <outlet property="termLabel" destination="KtA-aR-Zkw" id="3jZ-ff-LBN"/>
+                        <segue destination="Eof-Pm-TgY" kind="show" identifier="TermsToDoneScreen" id="OAA-uh-z9x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3V-tp-O3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,7 +376,6 @@
         <!--Confidence Survey-->
         <scene sceneID="La8-vO-Lfv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tsR-NZ-3q1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tg8-t3-wvZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Confidence Survey" image="icons8-Survey-25" selectedImage="icons8-Survey-25" id="VUn-h2-RTA"/>
                     <toolbarItems/>
@@ -370,6 +388,7 @@
                         <segue destination="RYL-0C-Dfe" kind="relationship" relationship="rootViewController" id="CtO-Kl-5r0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsR-NZ-3q1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1639" y="403"/>
         </scene>
