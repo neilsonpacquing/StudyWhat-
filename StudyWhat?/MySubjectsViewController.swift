@@ -9,20 +9,26 @@
 // testing github
 
 import UIKit
+// made it global in attempt to call it from other function
+var subjectsTableTestData = [Subject]() //[String] = ["Add/Select Subject"]
 
 class MySubjectsViewController: UITableViewController {
     
-    var subjectsTableTestData = [Subject]() //[String] = ["Add/Select Subject"]
+   // var subjectsTableTestData = [Subject]() //[String] = ["Add/Select Subject"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return subjectResults.count
@@ -46,7 +52,7 @@ class MySubjectsViewController: UITableViewController {
 //    }
     // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "subjectsToTopics", sender: nil)
+            performSegue(withIdentifier: "subjectsToTopics", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -71,7 +77,7 @@ class MySubjectsViewController: UITableViewController {
                 
                 let subjectStringToAddIntoTableView = subjectAlertTextField.text
                 let newSubject = Subject(name: subjectStringToAddIntoTableView!)
-                self.subjectsTableTestData.append(newSubject)
+                subjectsTableTestData.append(newSubject)
 //                self.subjectsTableTestData.append(subjectStringToAddIntoTableView!)
 
                 
@@ -85,12 +91,12 @@ class MySubjectsViewController: UITableViewController {
         //presents alert to the user
         present(addSubjectAlert, animated: true, completion: nil)
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let nextViewController = segue.destination as! MySubjectsTopicsViewController
-//        let tappedSubject = subjectsTableTestData[(tableView.indexPathForSelectedRow?.row)!]
-//        
-//        nextViewController.topicsTableTestData = tappedSubject.topicsTableTestData
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextSubjectViewController = segue.destination as! MySubjectsTopicsViewController
+        let tappedSubject = subjectsTableTestData[(tableView.indexPathForSelectedRow?.row)!]
+        
+        nextSubjectViewController.currentSubject = tappedSubject
+    }
 
 
 }

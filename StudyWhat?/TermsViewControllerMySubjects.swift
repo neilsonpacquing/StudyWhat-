@@ -11,7 +11,8 @@ import UIKit
 
 class MySubjectsTermsViewController: UITableViewController {
     
-    var termsTableTestData = [Term]() //: [String] = ["Add/Select Term"]
+    //var termsTableTestData = [Term]() //: [String] = ["Add/Select Term"]
+    var currentTopic : Topic?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,20 +21,20 @@ class MySubjectsTermsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return termsTableTestData.count
+        return (currentTopic?.terms.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         print(indexPath.row)
         
-        cell.textLabel?.text = termsTableTestData[indexPath.row].name
+        cell.textLabel?.text = currentTopic?.terms[indexPath.row].name
         return cell
         
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
-            termsTableTestData.remove(at: indexPath.row)
+            currentTopic?.terms.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -51,7 +52,7 @@ class MySubjectsTermsViewController: UITableViewController {
                 let termStringToAddIntoTableView = termAlertTextField.text
 //                self.termsTableTestData.append(termStringToAddIntoTableView!)
                 let newTerm = Term(name: termStringToAddIntoTableView!)
-                self.termsTableTestData.append(newTerm)
+                self.currentTopic?.terms.append(newTerm)
                 self.tableView.reloadData()
                 
             }

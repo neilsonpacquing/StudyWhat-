@@ -10,8 +10,9 @@ import UIKit
 
 class confidenceSurveyTableViewController: UITableViewController {
     
-    var confidenceTableTestData: [String] = ["BRUH","YOU","ARE","DOING","GREAT"]
-
+    //var confidenceTableTestData: [String] = ["BRUH","YOU","ARE","DOING","GREAT"]
+    //var confidenceSurveySubject = [Subject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,19 +24,27 @@ class confidenceSurveyTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return confidenceTableTestData.count
+        return subjectsTableTestData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         print(indexPath.row)
         
-        cell.textLabel?.text = confidenceTableTestData[indexPath.row]
+        cell.textLabel?.text = subjectsTableTestData[indexPath.row].name
         return cell
     }
     // when clikced, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "subjectConfidenceToTopics", sender: nil)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextSubjectConfidenceViewController = segue.destination as! MySubjectsTopicsViewController
+        let tappedConfidenceSubject = subjectsTableTestData[(tableView.indexPathForSelectedRow?.row)!]
+        
+        nextSubjectConfidenceViewController.currentSubject = tappedConfidenceSubject
+    }
+    
+
 }
 
 

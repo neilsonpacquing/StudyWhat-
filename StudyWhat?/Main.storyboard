@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,16 +14,16 @@
         <scene sceneID="aYT-wz-IOw">
             <objects>
                 <tableViewController id="khk-PJ-cOa" customClass="MySubjectsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="U70-Ce-gAJ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="U70-Ce-gAJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectTableViewCell" id="1Ab-xS-2I5">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ab-xS-2I5" id="IV4-U5-62N">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -51,16 +52,16 @@
         <scene sceneID="Eae-TI-cOZ">
             <objects>
                 <tableViewController id="P7i-7k-qCc" customClass="MySubjectsTopicsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RER-PI-zXz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="RER-PI-zXz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topicTableViewCell" id="cA0-sv-KXH">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topicTableViewCell" rowHeight="90" id="cA0-sv-KXH">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cA0-sv-KXH" id="1Cc-0t-5h7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -89,16 +90,16 @@
         <scene sceneID="WrJ-zh-ZYX">
             <objects>
                 <tableViewController id="iGq-gB-GOo" customClass="MySubjectsTermsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="J9k-Wx-KOh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" id="J9k-Wx-KOh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="termTableViewCell" id="1Me-n7-DJB">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Me-n7-DJB" id="pVS-jl-ZNB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -123,17 +124,18 @@
         <!--Confidence Survey Subject-->
         <scene sceneID="h43-mr-eFJ">
             <objects>
-                <tableViewController id="RYL-0C-Dfe" customClass="confidenceSurveyTableViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fxe-j5-LDp">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFG-gs-zfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="RYL-0C-Dfe" customClass="MySubjectsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="fxe-j5-LDp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceSurveyTableViewCellSubject" id="iOH-bS-X8T">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iOH-bS-X8T" id="Xxv-f4-rLh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -145,27 +147,27 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Confidence Survey Subject" id="Z8F-jH-8Hq"/>
                     <connections>
-                        <segue destination="V1l-G6-4TQ" kind="show" identifier="subjectConfidenceToTopics" id="29d-Uy-y1d"/>
+                        <segue destination="V1l-G6-4TQ" kind="show" identifier="subjectsToTopics" id="29d-Uy-y1d"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uFG-gs-zfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2345" y="403"/>
         </scene>
         <!--Confidence Survey Topic-->
         <scene sceneID="Hsn-aM-p1Y">
             <objects>
-                <tableViewController id="V1l-G6-4TQ" customClass="confidenceSurveyTopicsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="P5M-ux-DRz">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YaR-sk-jFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="V1l-G6-4TQ" customClass="MySubjectsTopicsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="P5M-ux-DRz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceSurveyTableViewCellTopic" id="1XJ-Ik-zQU">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1XJ-Ik-zQU" id="wwB-hG-T7h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -176,10 +178,143 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Confidence Survey Topic" id="R3F-og-6Lo"/>
+                    <connections>
+                        <segue destination="Qup-sy-U26" kind="show" identifier="topicToTermSurvey" id="SNV-4d-LCZ"/>
+                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YaR-sk-jFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3129" y="403"/>
+        </scene>
+        <!--Term Confidence Survey Table View-->
+        <scene sceneID="Lvg-k5-x42">
+            <objects>
+                <viewController id="Qup-sy-U26" customClass="TermConfidenceSurveyTableView" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vV7-DN-A4N"/>
+                        <viewControllerLayoutGuide type="bottom" id="uwF-Vj-Yhl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7sI-oi-6D8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="YLK-su-ixk">
+                                <rect key="frame" x="100" y="460" width="175" height="31"/>
+                                <connections>
+                                    <action selector="confidenceSlider:" destination="Qup-sy-U26" eventType="valueChanged" id="JdP-q3-Sxr"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOU-Xw-6As">
+                                <rect key="frame" x="102" y="500" width="171" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <segue destination="Eof-Pm-TgY" kind="show" id="DDX-W9-DMn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-TL-OR8">
+                                <rect key="frame" x="135" y="418" width="105" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtA-aR-Zkw">
+                                <rect key="frame" x="16" y="194" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfR-gx-XII">
+                                <rect key="frame" x="345" y="73" width="30" height="537"/>
+                                <state key="normal" title="&gt;&gt;"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neQ-9H-Sbr">
+                                <rect key="frame" x="0.0" y="72" width="30" height="538"/>
+                                <state key="normal" title="&lt;&lt;"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aOU-Xw-6As" firstAttribute="top" secondItem="YLK-su-ixk" secondAttribute="bottom" constant="10" id="29v-cF-e1q"/>
+                            <constraint firstAttribute="trailing" secondItem="YfR-gx-XII" secondAttribute="trailing" id="5s4-s8-7vF"/>
+                            <constraint firstItem="aOU-Xw-6As" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" constant="86" id="AuV-VA-Mma"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="trailing" secondItem="7sI-oi-6D8" secondAttribute="trailingMargin" id="BDG-qo-8aA"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="bottom" secondItem="neQ-9H-Sbr" secondAttribute="bottom" id="CrO-s6-8Ka"/>
+                            <constraint firstItem="8Tr-TL-OR8" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" constant="119" id="Ftj-Aq-xeZ"/>
+                            <constraint firstItem="YLK-su-ixk" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" constant="86" id="NGv-Ia-IVt"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="centerY" secondItem="neQ-9H-Sbr" secondAttribute="centerY" id="O4x-fA-MlH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aOU-Xw-6As" secondAttribute="trailing" constant="86" id="R3Q-Mz-0ep"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="top" secondItem="vV7-DN-A4N" secondAttribute="bottom" constant="130" id="Six-HV-Q6T"/>
+                            <constraint firstItem="uwF-Vj-Yhl" firstAttribute="top" secondItem="aOU-Xw-6As" secondAttribute="bottom" constant="70" id="TTy-i2-xWg"/>
+                            <constraint firstItem="YLK-su-ixk" firstAttribute="top" secondItem="8Tr-TL-OR8" secondAttribute="bottom" constant="13" id="Ue9-Js-PEB"/>
+                            <constraint firstItem="aOU-Xw-6As" firstAttribute="top" secondItem="YLK-su-ixk" secondAttribute="bottom" constant="10" id="Znw-vI-VWc"/>
+                            <constraint firstItem="YfR-gx-XII" firstAttribute="top" secondItem="vV7-DN-A4N" secondAttribute="bottom" constant="9" id="izC-ED-B9s"/>
+                            <constraint firstItem="KtA-aR-Zkw" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leadingMargin" id="jJE-HV-RZn"/>
+                            <constraint firstItem="neQ-9H-Sbr" firstAttribute="leading" secondItem="7sI-oi-6D8" secondAttribute="leading" id="og1-fp-W6v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Tr-TL-OR8" secondAttribute="trailing" constant="119" id="pSg-fJ-46C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YLK-su-ixk" secondAttribute="trailing" constant="86" id="pgW-7o-z1P"/>
+                            <constraint firstItem="uwF-Vj-Yhl" firstAttribute="top" secondItem="YfR-gx-XII" secondAttribute="bottom" constant="8" symbolic="YES" id="trY-l0-tvd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Save" destination="aOU-Xw-6As" id="mA8-OH-fsf"/>
+                        <outlet property="Score" destination="8Tr-TL-OR8" id="XAp-aP-PKk"/>
+                        <outlet property="termLabel" destination="KtA-aR-Zkw" id="3jZ-ff-LBN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T3V-tp-O3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3933.5999999999999" y="402.54872563718146"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QSH-ke-gUd">
+            <objects>
+                <viewController id="Eof-Pm-TgY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w7N-Db-d3F"/>
+                        <viewControllerLayoutGuide type="bottom" id="6qx-FV-imW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aun-bp-z4e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Great Work! Below are your current stats" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ym5-AO-6vb">
+                                <rect key="frame" x="67" y="72" width="240" height="210"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="tzZ-O8-uvU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take the survey again whenever so we'll update you with what you need to work on!" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AoX-WZ-DyT">
+                                <rect key="frame" x="67" y="522" width="240" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="bmz-Sn-bvN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Se-5A-72v">
+                                <rect key="frame" x="16" y="242" width="343" height="272"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ym5-AO-6vb" firstAttribute="leading" secondItem="aun-bp-z4e" secondAttribute="leadingMargin" constant="51.5" id="66P-zg-cs2"/>
+                            <constraint firstItem="ym5-AO-6vb" firstAttribute="top" secondItem="w7N-Db-d3F" secondAttribute="bottom" constant="8" id="6MJ-nU-GXg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ym5-AO-6vb" secondAttribute="trailing" constant="51.5" id="R4i-Fx-pNw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AoX-WZ-DyT" secondAttribute="trailing" constant="51.5" id="gfS-MX-fBU"/>
+                            <constraint firstItem="6qx-FV-imW" firstAttribute="top" secondItem="AoX-WZ-DyT" secondAttribute="bottom" constant="8" id="hWa-a9-48u"/>
+                            <constraint firstItem="AoX-WZ-DyT" firstAttribute="leading" secondItem="aun-bp-z4e" secondAttribute="leadingMargin" constant="51.5" id="hiQ-fK-YSA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ppq-SI-OQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4708" y="402.54872563718146"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -204,7 +339,7 @@
         <scene sceneID="Y5g-uN-CxK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uvv-Se-nvz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Subjects" id="rUC-go-hqT"/>
+                    <tabBarItem key="tabBarItem" title="Subjects" image="icons8-Open Book-25" selectedImage="icons8-Open Book-25" id="rUC-go-hqT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8nV-qA-cfc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -222,8 +357,9 @@
         <!--Confidence Survey-->
         <scene sceneID="La8-vO-Lfv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsR-NZ-3q1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tg8-t3-wvZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Confidence Survey" id="VUn-h2-RTA"/>
+                    <tabBarItem key="tabBarItem" title="Confidence Survey" image="icons8-Survey-25" selectedImage="icons8-Survey-25" id="VUn-h2-RTA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yq0-Vo-urf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -234,9 +370,12 @@
                         <segue destination="RYL-0C-Dfe" kind="relationship" relationship="rootViewController" id="CtO-Kl-5r0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tsR-NZ-3q1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1639" y="403"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-Open Book-25" width="25" height="25"/>
+        <image name="icons8-Survey-25" width="25" height="25"/>
+    </resources>
 </document>

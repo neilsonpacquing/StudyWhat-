@@ -7,7 +7,7 @@
 //
 import Foundation
 
-struct Subject{
+class Subject{
     var name: String
     var topics = [Topic]()
     var terms = [Term]()
@@ -17,7 +17,7 @@ struct Subject{
     }
 }
 
-struct Topic{
+class Topic{
     var name : String
     var terms = [Term]()
     
@@ -25,7 +25,7 @@ struct Topic{
         self.name = name
     }
 }
-struct Term{
+class Term{
     var name: String
     
     init(name: String){

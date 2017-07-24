@@ -11,33 +11,60 @@ import UIKit
 
 class MySubjectsTopicsViewController: UITableViewController {
     
-    var topicsTableTestData = [Topic]() //: [String] = ["Add/Select Topic"]
+    //var topicsTableTestData : [Topic]? //: [String] = ["Add/Select Topic"]
+    //make this class work with currentSubject.topics
+    var currentSubject : Subject?
+    
+    
+    var termToPass: String! = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topicsTableTestData.count
+        
+        if let theCount = currentSubject?.topics.count{
+            return theCount
+        }
+        else{
+            return 0
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         print(indexPath.row)
         
-        cell.textLabel?.text = topicsTableTestData[indexPath.row].name
+        cell.textLabel?.text = currentSubject?.topics[indexPath.row].name
         return cell
         
     }
     // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "topicsToTerms", sender: nil)
+       
+        if navigationItem.title == "Confidence Survey Topic"
+        {
+            termToPass = currentSubject?.topics[indexPath.row].terms[indexPath.row].name
+            performSegue(withIdentifier: "topicToTermSurvey", sender: self)
+        }
+        else
+        {
+            performSegue(withIdentifier: "topicsToTerms", sender: nil)
+        }
+        
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
-            topicsTableTestData.remove(at: indexPath.row)
+            currentSubject?.topics.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -54,7 +81,7 @@ class MySubjectsTopicsViewController: UITableViewController {
                 let topicStringToAddIntoTableView = topicAlertTextField.text
 //                self.topicsTableTestData.append(topicStringToAddIntoTableView!)
                 let newTopic = Topic(name: topicStringToAddIntoTableView!)
-                self.topicsTableTestData.append(newTopic)
+                self.currentSubject?.topics.append(newTopic)
                 self.tableView.reloadData()
                 
             }
@@ -65,5 +92,22 @@ class MySubjectsTopicsViewController: UITableViewController {
         present(addTopicAlert, animated: true, completion: nil)
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "topicToTermSurvey"
+        {
+            let destinationController = segue.destination as! TermConfidenceSurveyTableView
+            
+            destinationController.termString = termToPass
+        }
+        else
+        {
+            let nextTopicViewController = segue.destination as! MySubjectsTermsViewController
+            let tappedTopic = currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!]
+            
+            nextTopicViewController.currentTopic = tappedTopic
+        }
+    }
+
     
 }

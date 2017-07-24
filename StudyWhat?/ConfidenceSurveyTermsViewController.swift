@@ -31,8 +31,14 @@ class confidenceSurveyTopicsViewController: UITableViewController {
         return cell
         
     }
-//    // when clicked, it will perform the segway link and has a way back
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "topics", sender: nil)
-//    }
+    // when clicked, it will perform the segway link and has a way back
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "topicToTermSurvey", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextTopicConfidenceViewController = segue.destination as! MySubjectsTermsViewController
+        //let tappedConfidenceTopic = currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!]
+        
+        //nextTopicViewController.currentTopic = tappedTopic
+    }
 }
