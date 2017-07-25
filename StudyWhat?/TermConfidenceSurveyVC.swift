@@ -10,6 +10,7 @@ import UIKit
 
 class TermConfidenceSurveyViewController: UIViewController {
     
+    
     var terms = [Term]()
     var index = 0
  

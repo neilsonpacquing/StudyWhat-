@@ -41,26 +41,28 @@ class MySubjectsTopicsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topicTableViewCell", for: indexPath)
         print(indexPath.row)
         
         cell.textLabel?.text = currentSubject?.topics[indexPath.row].name
         return cell
         
     }
-    // when clicked, it will perform the segway link and has a way back
+//    // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        if navigationItem.title == "Confidence Survey Topic"
-        {
+//       
+    if navigationItem.title == "Topic" {
+//        {
             termToPass = currentSubject?.topics[indexPath.row].terms[indexPath.row].name
-            performSegue(withIdentifier: "topicToTermSurvey", sender: self)
-        }
-        else
-        {
+//            performSegue(withIdentifier: "topicToTermSurvey", sender: self)
+//        }
+//        else
+//        {
             performSegue(withIdentifier: "topicsToTerms", sender: nil)
+    
+//        }
+//
         }
-        
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
@@ -92,13 +94,14 @@ class MySubjectsTopicsViewController: UITableViewController {
         present(addTopicAlert, animated: true, completion: nil)
         
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == "topicToTermSurvey"
+        if segue.identifier == "topicToTerms"
         {
-            let destinationController = segue.destination as! TermConfidenceSurveyViewController
+            let destinationController = segue.destination as! MySubjectsTermsViewController
             
-            destinationController.terms = (currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!].terms)!
+            destinationController.currentTopic = (currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!])
         } else {
             let nextTopicViewController = segue.destination as! MySubjectsTermsViewController
             let tappedTopic = currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!]
@@ -107,5 +110,5 @@ class MySubjectsTopicsViewController: UITableViewController {
         }
     }
 
-    
+
 }

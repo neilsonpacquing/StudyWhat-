@@ -21,11 +21,16 @@ class MySubjectsTermsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (currentTopic?.terms.count)!
+        if let termCountInTopic = (currentTopic?.terms.count){
+            return termCountInTopic
+        }
+        else{
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "termTableViewCell", for: indexPath)
         print(indexPath.row)
         
         cell.textLabel?.text = currentTopic?.terms[indexPath.row].name

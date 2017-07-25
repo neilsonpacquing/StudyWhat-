@@ -36,7 +36,7 @@ class MySubjectsViewController: UITableViewController {
         return subjectsTableData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subjectTableViewCell", for: indexPath)
         print(indexPath.row)
         
         cell.textLabel?.text = subjectsTableData[indexPath.row].name

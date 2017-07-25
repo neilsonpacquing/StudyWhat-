@@ -27,7 +27,7 @@ class ConfidenceSurveyTableViewController: UITableViewController {
         return subjectsTableData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceSubjectCell", for: indexPath)
         print(indexPath.row)
         
         cell.textLabel?.text = subjectsTableData[indexPath.row].name
@@ -38,10 +38,12 @@ class ConfidenceSurveyTableViewController: UITableViewController {
         performSegue(withIdentifier: "subjectConfidenceToTopics", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextSubjectConfidenceViewController = segue.destination as! MySubjectsTopicsViewController
-        let tappedConfidenceSubject = subjectsTableData[(tableView.indexPathForSelectedRow?.row)!]
+        if let nextSubjectConfidenceViewController = segue.destination as? ConfidenceSurveyTopicsViewController{
+            let tappedConfidenceSubject = subjectsTableData[(tableView.indexPathForSelectedRow?.row)!]
+            
+            nextSubjectConfidenceViewController.currentSubject = tappedConfidenceSubject
+        }
         
-        nextSubjectConfidenceViewController.currentSubject = tappedConfidenceSubject
     }
     
 

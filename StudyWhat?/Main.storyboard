@@ -64,6 +64,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="iGq-gB-GOo" kind="show" identifier="topicsToTerms" id="lFG-fd-sGD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -78,13 +81,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="iGq-gB-GOo" kind="show" identifier="topicsToTerms" id="hPM-MC-mtB"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYi-ev-b1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3129" y="-347"/>
+            <point key="canvasLocation" x="3047" y="-349"/>
         </scene>
         <!--Terms-->
         <scene sceneID="WrJ-zh-ZYX">
@@ -119,18 +119,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njo-Fx-azf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3934" y="-347"/>
+            <point key="canvasLocation" x="3751" y="-347"/>
         </scene>
         <!--Confidence Survey Subject-->
         <scene sceneID="h43-mr-eFJ">
             <objects>
-                <tableViewController id="RYL-0C-Dfe" customClass="MySubjectsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RYL-0C-Dfe" customClass="ConfidenceSurveyTableViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="fxe-j5-LDp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceSurveyTableViewCellSubject" id="iOH-bS-X8T">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceSubjectCell" id="iOH-bS-X8T">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iOH-bS-X8T" id="Xxv-f4-rLh">
@@ -146,7 +146,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Confidence Survey Subject" id="Z8F-jH-8Hq"/>
                     <connections>
-                        <segue destination="V1l-G6-4TQ" kind="show" identifier="subjectsToTopics" id="29d-Uy-y1d"/>
+                        <segue destination="V1l-G6-4TQ" kind="show" identifier="subjectConfidenceToTopics" id="29d-Uy-y1d"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFG-gs-zfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,13 +156,13 @@
         <!--Confidence Survey Topic-->
         <scene sceneID="Hsn-aM-p1Y">
             <objects>
-                <tableViewController id="V1l-G6-4TQ" customClass="MySubjectsTopicsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="V1l-G6-4TQ" customClass="ConfidenceSurveyTopicsViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="P5M-ux-DRz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceSurveyTableViewCellTopic" id="1XJ-Ik-zQU">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceTopicCell" id="1XJ-Ik-zQU">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1XJ-Ik-zQU" id="wwB-hG-T7h">
@@ -183,9 +183,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaR-sk-jFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3129" y="403"/>
+            <point key="canvasLocation" x="3046" y="403"/>
         </scene>
-        <!--Confidence Survey-->
+        <!--Survey-->
         <scene sceneID="Lvg-k5-x42">
             <objects>
                 <viewController id="Qup-sy-U26" customClass="TermConfidenceSurveyViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
@@ -276,7 +276,7 @@
                             <constraint firstItem="YfR-gx-XII" firstAttribute="leading" secondItem="8Tr-TL-OR8" secondAttribute="trailing" constant="41" id="zAg-OV-7kh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Confidence Survey" id="X2c-ls-COp"/>
+                    <navigationItem key="navigationItem" title="Survey" id="X2c-ls-COp"/>
                     <connections>
                         <outlet property="Save" destination="aOU-Xw-6As" id="mA8-OH-fsf"/>
                         <outlet property="Score" destination="8Tr-TL-OR8" id="XAp-aP-PKk"/>
@@ -286,9 +286,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3V-tp-O3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3933.5999999999999" y="402.54872563718146"/>
+            <point key="canvasLocation" x="3750" y="403"/>
         </scene>
-        <!--Title-->
+        <!--Done Screen-->
         <scene sceneID="QSH-ke-gUd">
             <objects>
                 <viewController id="Eof-Pm-TgY" customClass="DoneScreenViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
@@ -351,14 +351,14 @@
                             <constraint firstItem="1Se-5A-72v" firstAttribute="top" secondItem="ym5-AO-6vb" secondAttribute="bottom" constant="8" id="osf-lS-ezL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="9xz-ew-dzh"/>
+                    <navigationItem key="navigationItem" title="Done Screen" id="9xz-ew-dzh"/>
                     <connections>
                         <outlet property="resultsTableView" destination="1Se-5A-72v" id="dcA-xp-LA7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppq-SI-OQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4616.8000000000002" y="402.54872563718146"/>
+            <point key="canvasLocation" x="4434" y="403"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
