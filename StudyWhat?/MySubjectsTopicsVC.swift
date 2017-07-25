@@ -99,9 +99,7 @@ class MySubjectsTopicsViewController: UITableViewController {
             let destinationController = segue.destination as! TermConfidenceSurveyViewController
             
             destinationController.terms = (currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!].terms)!
-        }
-        else
-        {
+        } else {
             let nextTopicViewController = segue.destination as! MySubjectsTermsViewController
             let tappedTopic = currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!]
             

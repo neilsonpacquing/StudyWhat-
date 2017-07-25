@@ -71,7 +71,7 @@
                             <outlet property="delegate" destination="P7i-7k-qCc" id="vvh-N5-gQr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Topics" id="reI-3Z-YZT">
+                    <navigationItem key="navigationItem" title="Topics" id="reI-3Z-YZT" colorLabel="IBBuiltInLabel-Gray">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="jaA-xc-Esb">
                             <connections>
                                 <action selector="AddTopicAlert:" destination="P7i-7k-qCc" id="mNN-TV-mym"/>
@@ -185,7 +185,7 @@
             </objects>
             <point key="canvasLocation" x="3129" y="403"/>
         </scene>
-        <!--Term Confidence Survey View Controller-->
+        <!--Confidence Survey-->
         <scene sceneID="Lvg-k5-x42">
             <objects>
                 <viewController id="Qup-sy-U26" customClass="TermConfidenceSurveyViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,11 +205,14 @@
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOU-Xw-6As">
                                 <rect key="frame" x="102" y="500" width="171" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="171" id="EZ7-mv-Ym7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-TL-OR8">
                                 <rect key="frame" x="135" y="418" width="105" height="29"/>
@@ -234,7 +237,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="&gt;&gt;"/>
                                 <connections>
-                                    <action selector="NextButton:" destination="Qup-sy-U26" eventType="touchUpInside" id="hKD-M3-Af1"/>
+                                    <action selector="NextButton:" destination="Qup-sy-U26" eventType="touchUpInside" id="XZe-iw-mXK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neQ-9H-Sbr">
@@ -273,6 +276,7 @@
                             <constraint firstItem="YfR-gx-XII" firstAttribute="leading" secondItem="8Tr-TL-OR8" secondAttribute="trailing" constant="41" id="zAg-OV-7kh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Confidence Survey" id="X2c-ls-COp"/>
                     <connections>
                         <outlet property="Save" destination="aOU-Xw-6As" id="mA8-OH-fsf"/>
                         <outlet property="Score" destination="8Tr-TL-OR8" id="XAp-aP-PKk"/>
@@ -284,10 +288,10 @@
             </objects>
             <point key="canvasLocation" x="3933.5999999999999" y="402.54872563718146"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="QSH-ke-gUd">
             <objects>
-                <viewController id="Eof-Pm-TgY" sceneMemberID="viewController">
+                <viewController id="Eof-Pm-TgY" customClass="DoneScreenViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w7N-Db-d3F"/>
                         <viewControllerLayoutGuide type="bottom" id="6qx-FV-imW"/>
@@ -296,16 +300,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Great Work! Below are your current stats" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ym5-AO-6vb">
-                                <rect key="frame" x="67" y="72" width="240" height="210"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Great Work! Below are your current stats" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ym5-AO-6vb">
+                                <rect key="frame" x="67" y="72" width="240" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="tzZ-O8-uvU"/>
+                                    <constraint firstAttribute="height" constant="160" id="tzZ-O8-uvU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take the survey again whenever so we'll update you with what you need to work on!" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AoX-WZ-DyT">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Take the survey again whenever so we'll update you with what you need to work on!" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoX-WZ-DyT">
                                 <rect key="frame" x="67" y="522" width="240" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -314,26 +318,47 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Se-5A-72v">
-                                <rect key="frame" x="16" y="242" width="343" height="272"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Se-5A-72v">
+                                <rect key="frame" x="16" y="240" width="343" height="274"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="doneCell" id="pA3-Yr-cfQ">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pA3-Yr-cfQ" id="B73-zK-Oly">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eof-Pm-TgY" id="XCn-n0-dG1"/>
+                                    <outlet property="delegate" destination="Eof-Pm-TgY" id="wsK-Fs-cVF"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ym5-AO-6vb" firstAttribute="leading" secondItem="aun-bp-z4e" secondAttribute="leadingMargin" constant="51.5" id="66P-zg-cs2"/>
                             <constraint firstItem="ym5-AO-6vb" firstAttribute="top" secondItem="w7N-Db-d3F" secondAttribute="bottom" constant="8" id="6MJ-nU-GXg"/>
+                            <constraint firstItem="1Se-5A-72v" firstAttribute="leading" secondItem="aun-bp-z4e" secondAttribute="leadingMargin" id="Gwx-mS-km3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ym5-AO-6vb" secondAttribute="trailing" constant="51.5" id="R4i-Fx-pNw"/>
+                            <constraint firstItem="1Se-5A-72v" firstAttribute="trailing" secondItem="aun-bp-z4e" secondAttribute="trailingMargin" id="Xwb-Xy-wIp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AoX-WZ-DyT" secondAttribute="trailing" constant="51.5" id="gfS-MX-fBU"/>
                             <constraint firstItem="6qx-FV-imW" firstAttribute="top" secondItem="AoX-WZ-DyT" secondAttribute="bottom" constant="8" id="hWa-a9-48u"/>
                             <constraint firstItem="AoX-WZ-DyT" firstAttribute="leading" secondItem="aun-bp-z4e" secondAttribute="leadingMargin" constant="51.5" id="hiQ-fK-YSA"/>
+                            <constraint firstItem="AoX-WZ-DyT" firstAttribute="top" secondItem="1Se-5A-72v" secondAttribute="bottom" constant="8" id="hqr-cC-AcK"/>
+                            <constraint firstItem="1Se-5A-72v" firstAttribute="top" secondItem="ym5-AO-6vb" secondAttribute="bottom" constant="8" id="osf-lS-ezL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="9xz-ew-dzh"/>
+                    <connections>
+                        <outlet property="resultsTableView" destination="1Se-5A-72v" id="dcA-xp-LA7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppq-SI-OQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4708" y="402.54872563718146"/>
+            <point key="canvasLocation" x="4616.8000000000002" y="402.54872563718146"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

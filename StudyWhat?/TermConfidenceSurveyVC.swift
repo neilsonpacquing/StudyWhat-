@@ -39,9 +39,9 @@ class TermConfidenceSurveyViewController: UIViewController {
     
     @IBAction func NextButton(_ sender: Any) {
         if index == terms.count - 1 {
-            performSegue(withIdentifier: "TermsToDoneScreen", sender: nil)
-        }
-        else {
+            //sender is what we are sending to viewcontroller
+            performSegue(withIdentifier: "TermsToDoneScreen", sender: terms)
+        } else {
             index += 1
             termLabel.text = terms[index].name
         }
@@ -51,15 +51,21 @@ class TermConfidenceSurveyViewController: UIViewController {
     }
     
     @IBAction func BackTermButton(_ sender: Any) {
-        index -= 1
+        if termLabel.text == terms[0].name {
+            index = 0
+        } else {
+            index -= 1
+        }
         termLabel.text = terms[index].name
-        
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
+    //makes it perform the certain segue at a certain time
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TermsToDoneScreen" {
+            let destination = segue.destination as! DoneScreenViewController
+            let sendArray = sender as! [Term]
+            destination.termsOnSurvey = sendArray
+        }
     }
     
 }

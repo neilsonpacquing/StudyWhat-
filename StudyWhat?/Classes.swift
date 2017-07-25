@@ -27,7 +27,7 @@ class Topic{
 }
 class Term{
     var name: String
-    
+    var confidenceRating = 0
     init(name: String){
         self.name = name
     }
