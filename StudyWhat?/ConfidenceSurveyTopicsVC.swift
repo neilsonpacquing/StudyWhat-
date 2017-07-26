@@ -54,12 +54,7 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
         {
             termToPass = currentSubject?.topics[indexPath.row].terms[indexPath.row].name
             performSegue(withIdentifier: "topicToTermSurvey", sender: self)
-        }
-//        else
-//        {
-//            performSegue(withIdentifier: "topicsToTerms", sender: nil)
-//        }
-        
+        }        
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
@@ -83,36 +78,3 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     }
 
 }
-
-    
-//    var confidenceSurveyTopicsTableTestData: [String] = ["Good", "💩"]
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return confidenceSurveyTopicsTableTestData.count
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceTopicCell", for: indexPath)
-//        print(indexPath.row)
-//        
-//        cell.textLabel?.text = confidenceSurveyTopicsTableTestData[indexPath.row]
-//        return cell
-//        
-//    }
-//    // when clicked, it will perform the segway link and has a way back
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "topicToTermSurvey", sender: nil)
-//    }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let nextTopicConfidenceViewController = segue.destination as! MySubjectsTermsViewController
-//        //let tappedConfidenceTopic = currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!]
-//        
-//        //nextTopicViewController.currentTopic = tappedTopic
-//    }
-//}

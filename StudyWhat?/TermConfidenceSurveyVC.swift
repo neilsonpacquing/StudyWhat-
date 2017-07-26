@@ -22,10 +22,6 @@ class TermConfidenceSurveyViewController: UIViewController {
     @IBOutlet weak var Score: UILabel!
     
     @IBOutlet weak var termLabel: UILabel!
-    
-    
-//    @IBOutlet weak var Term: UILabel!
-//    Term.text = String
 
     //make an action for the buttons
     //when the forward arrow ispressed it should increase index by 1 and show the term at that index
@@ -35,7 +31,6 @@ class TermConfidenceSurveyViewController: UIViewController {
         
         super.viewDidLoad()
         termLabel.text = terms[0].name
-        
     }
     
     @IBAction func NextButton(_ sender: Any) {
@@ -46,9 +41,6 @@ class TermConfidenceSurveyViewController: UIViewController {
             index += 1
             termLabel.text = terms[index].name
         }
-        
-        //termLabel.text = terms[1].name
-        
     }
     
     @IBAction func BackTermButton(_ sender: Any) {

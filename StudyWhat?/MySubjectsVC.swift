@@ -11,15 +11,15 @@
 import UIKit
 // made it global in attempt to call it from other function
 var subjectsTableData = [Subject]() //[String] = ["Add/Select Subject"]
+var dateAddTime = [String]()
 
 class MySubjectsViewController: UITableViewController {
-    
     
    // var subjectsTableTestData = [Subject]() //[String] = ["Add/Select Subject"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.        
+        // Do any additional setup after loading the view, typically from a nib.
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -30,9 +30,8 @@ class MySubjectsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
+    // for specific cell and that term would be in each one
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return subjectResults.count
         return subjectsTableData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,20 +39,15 @@ class MySubjectsViewController: UITableViewController {
         print(indexPath.row)
         
         cell.textLabel?.text = subjectsTableData[indexPath.row].name
+ //       //new thing attempting to add
+        cell.detailTextLabel?.text = dateAddTime[indexPath.row]
+ //
         return cell
     }
 
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "subjectTableViewCell", for: indexPath)
-//    
-//        
-//        cell.textLabel?.text = subjectResults[indexPath.row]
-//        return cell
-//        
-//    }
     // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "subjectsToTopics", sender: self)
+            performSegue(withIdentifier: "subjectsToTopics", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -79,9 +73,16 @@ class MySubjectsViewController: UITableViewController {
                 let subjectStringToAddIntoTableView = subjectAlertTextField.text
                 let newSubject = Subject(name: subjectStringToAddIntoTableView!)
                 subjectsTableData.append(newSubject)
-//                self.subjectsTableData.append(subjectStringToAddIntoTableView!)
+//                // new stuff trying to add
+                let time = Date()
+                let formatter = DateFormatter()
+                //look up different ways to display date and time
+                formatter.dateFormat = "MMM dd, yyyy  (hh:mm)"
+                let result = formatter.string(from: time)
+                dateAddTime.append(result)
 
-                
+
+//                ////////////////////////////////
                 self.tableView.reloadData()
                 
             }
@@ -97,6 +98,7 @@ class MySubjectsViewController: UITableViewController {
         let tappedSubject = subjectsTableData[(tableView.indexPathForSelectedRow?.row)!]
         
         nextSubjectViewController.currentSubject = tappedSubject
+        
     }
 
 

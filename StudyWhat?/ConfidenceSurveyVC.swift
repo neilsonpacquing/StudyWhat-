@@ -10,9 +10,6 @@ import UIKit
 
 class ConfidenceSurveyTableViewController: UITableViewController {
     
-    //var confidenceTableTestData: [String] = ["BRUH","YOU","ARE","DOING","GREAT"]
-    //var confidenceSurveySubject = [Subject]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,7 +30,7 @@ class ConfidenceSurveyTableViewController: UITableViewController {
         cell.textLabel?.text = subjectsTableData[indexPath.row].name
         return cell
     }
-    // when clikced, it will perform the segway link and has a way back
+    // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "subjectConfidenceToTopics", sender: nil)
     }

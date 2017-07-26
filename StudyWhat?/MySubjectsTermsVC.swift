@@ -11,7 +11,6 @@ import UIKit
 
 class MySubjectsTermsViewController: UITableViewController {
     
-    //var termsTableTestData = [Term]() //: [String] = ["Add/Select Term"]
     var currentTopic : Topic?
     
     override func viewDidLoad() {
@@ -34,6 +33,9 @@ class MySubjectsTermsViewController: UITableViewController {
         print(indexPath.row)
         
         cell.textLabel?.text = currentTopic?.terms[indexPath.row].name
+//       //new thing attempting to add
+        cell.detailTextLabel?.text = dateAddTime[indexPath.row]
+//
         return cell
         
     }
@@ -55,9 +57,16 @@ class MySubjectsTermsViewController: UITableViewController {
             if let termAlertTextField = addTermAlert.textFields?.first, termAlertTextField.text != nil {
                 
                 let termStringToAddIntoTableView = termAlertTextField.text
-//                self.termsTableTestData.append(termStringToAddIntoTableView!)
                 let newTerm = Term(name: termStringToAddIntoTableView!)
                 self.currentTopic?.terms.append(newTerm)
+//                // new stuff trying to add
+                let time = Date()
+                let formatter = DateFormatter()
+                //look up different ways to display date and time
+                formatter.dateFormat = "MMM dd, yyyy (hh:mm)"
+                let result = formatter.string(from: time)
+                dateAddTime.append(result)
+//                ////////////////////////////////
                 self.tableView.reloadData()
                 
             }

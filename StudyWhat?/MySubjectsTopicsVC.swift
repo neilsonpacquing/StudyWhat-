@@ -11,8 +11,7 @@ import UIKit
 
 class MySubjectsTopicsViewController: UITableViewController {
     
-    //var topicsTableTestData : [Topic]? //: [String] = ["Add/Select Topic"]
-    //make this class work with currentSubject.topics
+
     var currentSubject : Subject?
     
     
@@ -45,23 +44,19 @@ class MySubjectsTopicsViewController: UITableViewController {
         print(indexPath.row)
         
         cell.textLabel?.text = currentSubject?.topics[indexPath.row].name
+//       //new thing attempting to add
+        cell.detailTextLabel?.text = dateAddTime[indexPath.row]
+//
         return cell
         
     }
 //    // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//       
+       
     if navigationItem.title == "Topic" {
-//        {
+
             termToPass = currentSubject?.topics[indexPath.row].terms[indexPath.row].name
-//            performSegue(withIdentifier: "topicToTermSurvey", sender: self)
-//        }
-//        else
-//        {
             performSegue(withIdentifier: "topicsToTerms", sender: nil)
-    
-//        }
-//
         }
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -81,9 +76,18 @@ class MySubjectsTopicsViewController: UITableViewController {
             if let topicAlertTextField = addTopicAlert.textFields?.first, topicAlertTextField.text != nil {
                 
                 let topicStringToAddIntoTableView = topicAlertTextField.text
-//                self.topicsTableTestData.append(topicStringToAddIntoTableView!)
                 let newTopic = Topic(name: topicStringToAddIntoTableView!)
                 self.currentSubject?.topics.append(newTopic)
+//                // new stuff trying to add
+                let time = Date()
+                let formatter = DateFormatter()
+                //look up different ways to display date and time
+                formatter.dateFormat = "MMM dd, yyyy (hh:mm)"
+                let result = formatter.string(from: time)
+                dateAddTime.append(result)
+                
+                
+//                ////////////////////////////////
                 self.tableView.reloadData()
                 
             }

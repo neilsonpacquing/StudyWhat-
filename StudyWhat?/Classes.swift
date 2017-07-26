@@ -11,6 +11,9 @@ class Subject{
     var name: String
     var topics = [Topic]()
     var terms = [Term]()
+    //attempt
+    var modificationTime = Date()
+    //
     
     init (name: String){
         self.name = name
@@ -20,6 +23,9 @@ class Subject{
 class Topic{
     var name : String
     var terms = [Term]()
+    //attempt
+    var modificationTime = Date()
+    //
     
     init(name: String){
         self.name = name
@@ -27,6 +33,10 @@ class Topic{
 }
 class Term{
     var name: String
+    //atttempt
+    var modificationTime = Date()
+    //
+    
     var confidenceRating = 0
     init(name: String){
         self.name = name

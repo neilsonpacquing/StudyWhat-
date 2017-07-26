@@ -68,8 +68,18 @@
 		8301AF721F1D19C6009C0E12 /* StudyWhat? */ = {
 			isa = PBXGroup;
 			children = (
-				8301AF731F1D19C7009C0E12 /* AppDelegate.swift */,
-				83F972301F2117940082ECD8 /* Classes.swift */,
+				83F9876F1F29134C0017DB52 /* Views */,
+				83F9876E1F29133B0017DB52 /* Models */,
+				83F9876D1F2913180017DB52 /* Supporting */,
+				83F9876C1F2912DC0017DB52 /* Controllers */,
+				83A51C8C1F1EC00E0048DDD6 /* Main.storyboard */,
+			);
+			path = "StudyWhat?";
+			sourceTree = "<group>";
+		};
+		83F9876C1F2912DC0017DB52 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				8301AF751F1D19C7009C0E12 /* MySubjectsVC.swift */,
 				83A51C801F1D7DBB0048DDD6 /* MySubjectsTopicsVC.swift */,
 				83A51C821F1D7E270048DDD6 /* MySubjectsTermsVC.swift */,
@@ -77,12 +87,34 @@
 				83A51C841F1D7FB40048DDD6 /* ConfidenceSurveyTopicsVC.swift */,
 				83F972321F2164950082ECD8 /* TermConfidenceSurveyVC.swift */,
 				8361C5561F22A02E0026E400 /* DoneScreenVC.swift */,
-				83A51C8C1F1EC00E0048DDD6 /* Main.storyboard */,
-				8301AF7C1F1D19C7009C0E12 /* Assets.xcassets */,
-				8301AF7E1F1D19C7009C0E12 /* LaunchScreen.storyboard */,
-				8301AF811F1D19C7009C0E12 /* Info.plist */,
 			);
-			path = "StudyWhat?";
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		83F9876D1F2913180017DB52 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				8301AF811F1D19C7009C0E12 /* Info.plist */,
+				8301AF7E1F1D19C7009C0E12 /* LaunchScreen.storyboard */,
+				8301AF7C1F1D19C7009C0E12 /* Assets.xcassets */,
+				8301AF731F1D19C7009C0E12 /* AppDelegate.swift */,
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		83F9876E1F29133B0017DB52 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				83F972301F2117940082ECD8 /* Classes.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		83F9876F1F29134C0017DB52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
