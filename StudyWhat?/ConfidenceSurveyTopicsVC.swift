@@ -40,10 +40,11 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceTopicCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceTopicCell", for: indexPath) as! ConfidenceTopicCell
         print(indexPath.row)
         
-        cell.textLabel?.text = currentSubject?.topics[indexPath.row].name
+        cell.confidenceTopicLabel.text = currentSubject?.topics[indexPath.row].name
+        //cell.confidenceTopicScore.text = String(currentSubject?.topics[indexPath.row].
         return cell
         
     }

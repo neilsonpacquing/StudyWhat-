@@ -1,12 +1,11 @@
 //
-//  FirstViewController.swift
+//  MySubjectsViewController.swift
 //  StudyWhat?
 //
 //  Created by Neilson Pacquing on 7/17/17.
 //  Copyright © 2017 Neilson Pacquing. All rights reserved.
 //
 
-// testing github
 
 import UIKit
 // made it global in attempt to call it from other function

@@ -12,6 +12,7 @@ class DoneScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var termsOnSurvey = [Term]()
     
+    @IBOutlet weak var AverageTermSurveyScore: UILabel!
     @IBOutlet weak var resultsTableView: UITableView!
     
     override func viewDidLoad() {
@@ -33,11 +34,12 @@ class DoneScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     //gets specific cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //make all cells likke this
-        let cell = tableView.dequeueReusableCell(withIdentifier: "doneCell", for: indexPath)
+        //make all cells like this
+        let cell = tableView.dequeueReusableCell(withIdentifier: "doneCell", for: indexPath) as! DoneScreenTermCell
         print(indexPath.row)
         
-        cell.textLabel?.text = termsOnSurvey[indexPath.row].name
+        cell.termLabel.text = termsOnSurvey[indexPath.row].name
+        cell.termScore.text = String(termsOnSurvey[indexPath.row].confidenceScore)
         return cell
         
     }
