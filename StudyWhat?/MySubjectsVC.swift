@@ -74,7 +74,7 @@ class MySubjectsViewController: UITableViewController {
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
             
             if let subjectAlertTextField = addSubjectAlert.textFields?.first, subjectAlertTextField.text != nil {
-                
+              //makes it so that if the textfield is empty, it will not display.
                 if subjectAlertTextField.text == "" {
                     return
                 }

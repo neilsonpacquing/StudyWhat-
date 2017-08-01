@@ -68,7 +68,7 @@ class MySubjectsTermsViewController: UITableViewController {
         }
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
             if let termAlertTextField = addTermAlert.textFields?.first, termAlertTextField.text != nil {
-                
+                //makes it so that if the textField is empty, it will not display anything
                 if termAlertTextField.text == "" {
                     return
                 }

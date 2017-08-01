@@ -77,7 +77,7 @@ class MySubjectsTopicsViewController: UITableViewController {
             if let topicAlertTextField = addTopicAlert.textFields?.first, topicAlertTextField.text != nil {
                 
                 let topicStringToAddIntoTableView = topicAlertTextField.text
-                
+                //makes it so that if the textField is empty, it will not display
                 if topicStringToAddIntoTableView == ""{
                     return
                 }
