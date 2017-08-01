@@ -80,6 +80,7 @@ class MySubjectsTopicsViewController: UITableViewController {
                 //makes it so that if the textField is empty, it will not display
                 if topicStringToAddIntoTableView == ""{
                     return
+                    
                 }
                 let newTopic = Topic(name: topicStringToAddIntoTableView!)
                 self.currentSubject?.topics.append(newTopic)

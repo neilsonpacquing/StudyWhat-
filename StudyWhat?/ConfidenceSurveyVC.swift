@@ -10,14 +10,15 @@ import UIKit
 
 class ConfidenceSurveyTableViewController: UITableViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,9 +36,27 @@ class ConfidenceSurveyTableViewController: UITableViewController {
     }
     // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        //trying to add this alert controller because when subjects is clicked, it still goes
+        let clickedSubject = subjectsTableData[indexPath.row].topics
         
-        performSegue(withIdentifier: "subjectConfidenceToTopics", sender: nil)
+        if clickedSubject.count == 0 {
+            //
+            let alert = UIAlertController(title: "Empty!", message: "There are no topics in this Subject!", preferredStyle: UIAlertControllerStyle.alert)
+            let cancelAction = UIAlertAction(title: "Okay!", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+            
+            
+        }else{
+            
+            if navigationItem.title == "Confidence Survey Subject"
+            {
+                //tableView.reloadData()
+                //termToPass = currentSubject?.topics[indexPath.row].terms[indexPath.row].name
+                performSegue(withIdentifier: "subjectConfidenceToTopics", sender: nil)
+            }
+            
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextSubjectConfidenceViewController = segue.destination as? ConfidenceSurveyTopicsViewController{

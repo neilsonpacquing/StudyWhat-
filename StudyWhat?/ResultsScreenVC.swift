@@ -17,6 +17,10 @@ class ResultsScreenViewController: UIViewController, UITableViewDelegate, UITabl
 
     //made customizations to the tableview
     override func viewDidLoad() {
+        termsOnSurvey.sort { (term1, term2) -> Bool in
+            return term1.confidenceScore < term2.confidenceScore
+        }
+        
         print(termsOnSurvey.count)
         resultsTableView.delegate = self
         resultsTableView.dataSource = self
@@ -54,6 +58,16 @@ class ResultsScreenViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.termLabel.text = termsOnSurvey[indexPath.row].name
         cell.termScore.text = String(termsOnSurvey[indexPath.row].confidenceScore)
+        //made it so that terms on survey 
+        if termsOnSurvey[indexPath.row].confidenceScore >= 0 && termsOnSurvey[indexPath.row].confidenceScore <= 3 {
+            cell.leftViewColor.backgroundColor = .red
+        }
+        if termsOnSurvey[indexPath.row].confidenceScore >= 4 && termsOnSurvey[indexPath.row].confidenceScore <= 7 {
+            cell.leftViewColor.backgroundColor = .yellow
+        }
+        if termsOnSurvey[indexPath.row].confidenceScore >= 8 {
+            cell.leftViewColor.backgroundColor = .green
+        }
         return cell
         
     }

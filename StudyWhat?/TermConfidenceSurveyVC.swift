@@ -58,13 +58,12 @@ class TermConfidenceSurveyViewController: UIViewController {
             //sender is what we are sending to viewcontroller
             performSegue(withIdentifier: "TermsToResultsScreen", sender: terms)
         } else {
-            
             index += 1
             scoreNumber.text = String(terms[index].confidenceScore)
 
             termLabel.text = terms[index].name
             Score.text = String(terms[index].confidenceScore)
-            //saveButton(self)
+            
         //made slider equal the value you put it as in the past
             confidenceSlider.value = Float(terms[index].confidenceScore)
         }

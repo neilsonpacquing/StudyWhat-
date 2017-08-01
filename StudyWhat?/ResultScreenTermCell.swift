@@ -12,6 +12,8 @@ class ResultScreenTermCell: UITableViewCell {
 
     @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var termScore: UILabel!
+    @IBOutlet weak var leftViewColor: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

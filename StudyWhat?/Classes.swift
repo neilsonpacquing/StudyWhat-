@@ -12,7 +12,7 @@ class Subject{
     var topics = [Topic]()
     //var terms = [Term]()
     //attempt
-    var modificationTime = Date()
+    //var modificationTime = Date()
     //
     
     init (name: String){
@@ -23,7 +23,7 @@ class Topic{
     var name : String
     var terms = [Term]()
     //attempt
-    var modificationTime = Date()
+    //var modificationTime = Date()
     //
     
     init(name: String){
@@ -34,7 +34,7 @@ class Term{
     var name: String
     var confidenceScore: Int = 0
     //atttempt
-    var modificationTime = Date()
+    //var modificationTime = Date()
     //
         init(name: String){
         self.name = name

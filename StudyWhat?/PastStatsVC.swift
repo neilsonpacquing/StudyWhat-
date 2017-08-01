@@ -26,6 +26,10 @@ class PastStatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 //        super.viewDidLoad()
 //        tableView.estimatedRowHeight = tableView.rowHeight
 //        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        termsOnSurvey.sort { (term1, term2) -> Bool in
+            return term1.confidenceScore < term2.confidenceScore
+        }
 
         print(termsOnSurvey.count)
         pastStatsTableView.delegate = self
@@ -69,6 +73,16 @@ class PastStatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         cell.termLabel.text = termsOnSurvey[indexPath.row].name
         cell.termScore.text = String(termsOnSurvey[indexPath.row].confidenceScore)
+        if termsOnSurvey[indexPath.row].confidenceScore >= 0 && termsOnSurvey[indexPath.row].confidenceScore <= 3 {
+            cell.leftViewColor.backgroundColor = .red
+        }
+        if termsOnSurvey[indexPath.row].confidenceScore >= 4 && termsOnSurvey[indexPath.row].confidenceScore <= 7 {
+            cell.leftViewColor.backgroundColor = .yellow
+        }
+        if termsOnSurvey[indexPath.row].confidenceScore >= 8 {
+            cell.leftViewColor.backgroundColor = .green
+        }
+        
         print(termsOnSurvey[indexPath.row].confidenceScore)
 
         cell.selectionStyle = .none
