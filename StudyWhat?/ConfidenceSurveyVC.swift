@@ -14,6 +14,10 @@ class ConfidenceSurveyTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -26,18 +30,19 @@ class ConfidenceSurveyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceSubjectCell", for: indexPath)
         print(indexPath.row)
-        
         cell.textLabel?.text = subjectsTableData[indexPath.row].name
         return cell
     }
     // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+        
         performSegue(withIdentifier: "subjectConfidenceToTopics", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextSubjectConfidenceViewController = segue.destination as? ConfidenceSurveyTopicsViewController{
             let tappedConfidenceSubject = subjectsTableData[(tableView.indexPathForSelectedRow?.row)!]
-            
+    
             nextSubjectConfidenceViewController.currentSubject = tappedConfidenceSubject
         }
         

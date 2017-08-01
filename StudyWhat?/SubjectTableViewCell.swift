@@ -1,17 +1,18 @@
 //
-//  ConfidenceTopicCell.swift
+//  SubjectTableViewCell.swift
 //  StudyWhat?
 //
-//  Created by Neilson Pacquing on 7/26/17.
+//  Created by Neilson Pacquing on 7/31/17.
 //  Copyright © 2017 Neilson Pacquing. All rights reserved.
 //
 
 import UIKit
 
-class ConfidenceTopicCell: UITableViewCell {
+class SubjectTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var confidenceTopicLabel: UILabel!
-    @IBOutlet weak var confidenceTopicScore: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var numberTopics: UILabel!
+    @IBOutlet weak var leftViewColor: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +23,5 @@ class ConfidenceTopicCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 
 }

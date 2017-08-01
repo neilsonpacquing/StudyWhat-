@@ -8,18 +8,22 @@
 
 
 import UIKit
-// made it global in attempt to call it from other function
-var subjectsTableData = [Subject]() //[String] = ["Add/Select Subject"]
+
+// made it global in attempt to call it from other function (BAD PRACTICE)
+var subjectsTableData = [Subject]()
 var dateAddTime = [String]()
+
+
 
 class MySubjectsViewController: UITableViewController {
     
-   // var subjectsTableTestData = [Subject]() //[String] = ["Add/Select Subject"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    // viewWillAppear updates when view is going to appear
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -34,12 +38,14 @@ class MySubjectsViewController: UITableViewController {
         return subjectsTableData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subjectTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subjectTableViewCell", for: indexPath) as! SubjectTableViewCell
         print(indexPath.row)
         
-        cell.textLabel?.text = subjectsTableData[indexPath.row].name
- //       //new thing attempting to add
-        cell.detailTextLabel?.text = dateAddTime[indexPath.row]
+        
+        cell.subjectLabel?.text = subjectsTableData[indexPath.row].name
+        cell.numberTopics?.text = "Topics: " + String(subjectsTableData[indexPath.row].topics.count)
+ //       //new thing attempting to add (for date and time when adding a new subject)
+        //cell.detailTextLabel?.text = dateAddTime[indexPath.row]
  //
         return cell
     }
@@ -69,16 +75,19 @@ class MySubjectsViewController: UITableViewController {
             
             if let subjectAlertTextField = addSubjectAlert.textFields?.first, subjectAlertTextField.text != nil {
                 
+                if subjectAlertTextField.text == "" {
+                    return
+                }
                 let subjectStringToAddIntoTableView = subjectAlertTextField.text
                 let newSubject = Subject(name: subjectStringToAddIntoTableView!)
                 subjectsTableData.append(newSubject)
-//                // new stuff trying to add
-                let time = Date()
-                let formatter = DateFormatter()
-                //look up different ways to display date and time
-                formatter.dateFormat = "MMM dd, yyyy  (hh:mm)"
-                let result = formatter.string(from: time)
-                dateAddTime.append(result)
+//                // new stuff trying to add (for date and time adding subject)
+//                let time = Date()
+//                let formatter = DateFormatter()
+//                //look up different ways to display date and time
+//                formatter.dateFormat = "MMM dd, yyyy  (hh:mm)"
+//                let result = formatter.string(from: time)
+//                dateAddTime.append(result)
 
 
 //                ////////////////////////////////

@@ -10,7 +10,7 @@ import Foundation
 class Subject{
     var name: String
     var topics = [Topic]()
-    var terms = [Term]()
+    //var terms = [Term]()
     //attempt
     var modificationTime = Date()
     //
@@ -32,7 +32,7 @@ class Topic{
 }
 class Term{
     var name: String
-    var confidenceScore: Int = 5
+    var confidenceScore: Int = 0
     //atttempt
     var modificationTime = Date()
     //

@@ -1,5 +1,5 @@
 //
-//  ConfidenceTopicCell.swift
+//  ResultScreenTermCell.swift
 //  StudyWhat?
 //
 //  Created by Neilson Pacquing on 7/26/17.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ConfidenceTopicCell: UITableViewCell {
+class ResultScreenTermCell: UITableViewCell {
 
-    @IBOutlet weak var confidenceTopicLabel: UILabel!
-    @IBOutlet weak var confidenceTopicScore: UILabel!
+    @IBOutlet weak var termLabel: UILabel!
+    @IBOutlet weak var termScore: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +22,5 @@ class ConfidenceTopicCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 
 }
