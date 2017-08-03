@@ -8,10 +8,13 @@
 
 import UIKit
 
-class PastStatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PastStatsVC: UIViewController {
     
     var termsOnSurvey = [Term]()
+    var currentTopic : Topic?
+    //var terms = [Term]()
     
+    @IBOutlet weak var addTerm: UIBarButtonItem!
     @IBOutlet weak var pastStatsTableView: UITableView!
 
     @IBOutlet weak var pastTermAverageScoreCL: UILabel!
@@ -20,7 +23,46 @@ class PastStatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBAction func pastStatsToSurvey(_ sender: UIButton) {
         performSegue(withIdentifier: "pastStatsToSurvey", sender: nil)
     }
-//    }
+    //override
+    
+    @IBAction func AddTermsAlert(_ sender: Any) {
+        let addTermAlert = UIAlertController(title: "Term", message: "Enter New Term Below", preferredStyle: UIAlertControllerStyle.alert)
+        addTermAlert.addTextField { (termName:UITextField) in
+            termName.placeholder = "Add New Term Here"
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+        }
+        let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            if let termAlertTextField = addTermAlert.textFields?.first, termAlertTextField.text != nil {
+                //makes it so that if the textField is empty, it will not display anything
+                if termAlertTextField.text == "" {
+                    return
+                }
+                
+                let termStringToAddIntoTableView = termAlertTextField.text
+                let newTerm = CoreDataHelper.newTerm()//Term(name: termStringToAddIntoTableView!)
+                newTerm.name = termStringToAddIntoTableView
+                self.termsOnSurvey.append(newTerm)
+                self.currentTopic?.terms = NSSet(array: self.termsOnSurvey)
+                CoreDataHelper.save()
+                // new stuff trying to add (for date and time when adding a new term)
+                //                let time = Date()
+                //                let formatter = DateFormatter()
+                //                //look up different ways to display date and time
+                //                formatter.dateFormat = "MMM dd, yyyy (hh:mm)"
+                //                let result = formatter.string(from: time)
+                //                dateAddTime.append(result)
+                self.termsOnSurvey.sort(by: {$0.confidenceScore < $1.confidenceScore})
+                self.pastStatsTableView.reloadData()
+                
+            }
+        }
+        
+        addTermAlert.addAction(cancelAction)
+        addTermAlert.addAction(addAction)
+        
+        present(addTermAlert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -41,6 +83,8 @@ class PastStatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         pastStatsTableView.layer.cornerRadius = 8         //made corners rounded
         pastStatsTableView.clipsToBounds = true
         calculateTermAverage()
+        
+        termsOnSurvey.sort(by: {$0.confidenceScore < $1.confidenceScore})
     }
     func calculateTermAverage() {
         var total = 0
@@ -62,35 +106,6 @@ class PastStatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 //  attempting to fetch the old data put in the results view controller and if its empty, score and average should be set to 0
     
     //tableView stuff
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return termsOnSurvey.count
-    }
-    //for specific cell in tableview,
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //made it so whatever cells go offscreen will be used again to save memory
-    //
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pastTableViewCell", for: indexPath) as! PastStatsTableViewCell
-        
-        cell.termLabel.text = termsOnSurvey[indexPath.row].name
-        cell.termScore.text = String(termsOnSurvey[indexPath.row].confidenceScore)
-        //gave cells certain view colors depending on the certain score
-        if termsOnSurvey[indexPath.row].confidenceScore >= 0 && termsOnSurvey[indexPath.row].confidenceScore <= 3 {
-            cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 13/255, blue: 0/255, alpha: 1)//red
-        }
-        if termsOnSurvey[indexPath.row].confidenceScore >= 4 && termsOnSurvey[indexPath.row].confidenceScore <= 7 {
-            cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)//yellow
-        }
-        if termsOnSurvey[indexPath.row].confidenceScore >= 8 {
-            cell.leftViewColor.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 31/255, alpha: 1)//green
-        }
-        
-        print(termsOnSurvey[indexPath.row].confidenceScore)
-
-        cell.selectionStyle = .none
-        return cell
-    //
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -115,5 +130,47 @@ class PastStatsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     */
 
+}
+
+extension PastStatsVC: UITableViewDelegate, UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return termsOnSurvey.count
+    }
+    
+    //for specific cell in tableview,
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //made it so whatever cells go offscreen will be used again to save memory
+        //
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pastTableViewCell", for: indexPath) as! PastStatsTableViewCell
+        
+        cell.termLabel.text = termsOnSurvey[indexPath.row].name
+        cell.termScore.text = String(termsOnSurvey[indexPath.row].confidenceScore)
+        //gave cells certain view colors depending on the certain score
+        if termsOnSurvey[indexPath.row].confidenceScore >= 0 && termsOnSurvey[indexPath.row].confidenceScore <= 3 {
+            cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 13/255, blue: 0/255, alpha: 1)//red
+        }
+        if termsOnSurvey[indexPath.row].confidenceScore >= 4 && termsOnSurvey[indexPath.row].confidenceScore <= 7 {
+            cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)//yellow
+        }
+        if termsOnSurvey[indexPath.row].confidenceScore >= 8 {
+            cell.leftViewColor.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 31/255, alpha: 1)//green
+        }
+        
+        print(termsOnSurvey[indexPath.row].confidenceScore)
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if (editingStyle == UITableViewCellEditingStyle.delete)
+        {
+            termsOnSurvey.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 

@@ -166,7 +166,7 @@
                                     <outlet property="leftViewColor" destination="DFb-iR-Oqf" id="owa-iu-YGM"/>
                                     <outlet property="numberOfTerms" destination="EqZ-vp-2qr" id="oQ1-T4-tWx"/>
                                     <outlet property="topicLabel" destination="9Qe-jH-I1h" id="oZU-rV-Mgl"/>
-                                    <segue destination="iGq-gB-GOo" kind="show" identifier="topicsToTerms" id="lFG-fd-sGD"/>
+                                    <segue destination="rkc-EV-wNs" kind="show" identifier="topicsToTerms" id="jpd-33-B9R"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -254,13 +254,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="rkc-EV-wNs" kind="show" identifier="termsToPastStats" id="898-ZQ-i2s"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njo-Fx-azf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3749.5999999999999" y="-347.67616191904051"/>
+            <point key="canvasLocation" x="3750" y="-981"/>
         </scene>
         <!--Past Stats-->
         <scene sceneID="2LR-ST-B8Q">
@@ -370,6 +367,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rkc-EV-wNs" id="Rlh-SU-ouL"/>
+                                    <outlet property="delegate" destination="rkc-EV-wNs" id="vgp-Gd-5MZ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -391,8 +392,15 @@
                             <constraint firstItem="C4S-Oe-vi4" firstAttribute="top" secondItem="kzT-Oz-m0t" secondAttribute="bottom" constant="8" id="qsb-MS-XP4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Past Stats" id="4Ge-9k-eSq"/>
+                    <navigationItem key="navigationItem" title="Past Stats" id="4Ge-9k-eSq">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Wbh-vY-FOO">
+                            <connections>
+                                <action selector="AddTermsAlert:" destination="rkc-EV-wNs" id="L5a-WR-Z4Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addTerm" destination="Wbh-vY-FOO" id="ijf-AL-wmS"/>
                         <outlet property="pastStatsTableView" destination="VNi-Bu-kph" id="edP-qj-RZv"/>
                         <outlet property="pastTermAverageScoreCL" destination="9C2-UY-e20" id="8i6-UC-mrD"/>
                         <segue destination="Qup-sy-U26" kind="show" identifier="pastStatsToSurvey" id="Mxa-G4-zqu"/>

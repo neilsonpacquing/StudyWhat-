@@ -118,19 +118,15 @@ class MySubjectsTopicsViewController: UITableViewController {
         present(addTopicAlert, animated: true, completion: nil)
         
     }
-
+//made it so it performs the named segue 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == "topicToTerms"
+        if segue.identifier == "topicsToTerms"
         {
-            let destinationController = segue.destination as! MySubjectsTermsViewController
+            let destinationController = segue.destination as! PastStatsVC
             
-            destinationController.currentTopic = (topics[(tableView.indexPathForSelectedRow?.row)!])
-        } else {
-            let nextTopicViewController = segue.destination as! MySubjectsTermsViewController
-            let tappedTopic = topics[(tableView.indexPathForSelectedRow?.row)!]
-            
-            nextTopicViewController.currentTopic = tappedTopic
+            destinationController.termsOnSurvey = (topics[(tableView.indexPathForSelectedRow?.row)!].terms?.allObjects as! [Term])
+            destinationController.currentTopic = topics[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
 
