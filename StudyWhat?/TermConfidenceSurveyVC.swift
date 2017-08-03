@@ -21,9 +21,10 @@ class TermConfidenceSurveyViewController: UIViewController {
     }
     //made the save button save the score from the confidence slider
     @IBAction func saveButton(_ sender: Any) {
-        terms[index].confidenceScore = Int(confidenceSlider.value)
+        terms[index].confidenceScore = Int16(Int(confidenceSlider.value))
         scoreNumber.text = String(terms[index].confidenceScore)   //make save button act like the next button
         NextButton(self)
+        CoreDataHelper.save()
         }
     
     @IBOutlet weak var confidenceSlider: UISlider!

@@ -37,11 +37,11 @@ class ResultsScreenViewController: UIViewController, UITableViewDelegate, UITabl
     func calculateTermAverage() {
         var total = 0
         for term in termsOnSurvey {
-            total += term.confidenceScore
+            total += Int(term.confidenceScore)
         }
         let average = Double(total) / Double(termsOnSurvey.count)
         //use 100 to round to 2 decimal places.
-        let roundedAverage = Double(round(average * 100) / 100)
+        let roundedAverage = Double(round(average * 1000) / 1000)
         termAverageSurveyScoreCL.text = String(roundedAverage)
     }
     
@@ -60,13 +60,13 @@ class ResultsScreenViewController: UIViewController, UITableViewDelegate, UITabl
         cell.termScore.text = String(termsOnSurvey[indexPath.row].confidenceScore)
         //made it so that terms on survey 
         if termsOnSurvey[indexPath.row].confidenceScore >= 0 && termsOnSurvey[indexPath.row].confidenceScore <= 3 {
-            cell.leftViewColor.backgroundColor = .red
+            cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 13/255, blue: 0/255, alpha: 1)//red
         }
         if termsOnSurvey[indexPath.row].confidenceScore >= 4 && termsOnSurvey[indexPath.row].confidenceScore <= 7 {
-            cell.leftViewColor.backgroundColor = .yellow
+            cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)//yellow
         }
         if termsOnSurvey[indexPath.row].confidenceScore >= 8 {
-            cell.leftViewColor.backgroundColor = .green
+            cell.leftViewColor.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 31/255, alpha: 1)//green
         }
         return cell
         

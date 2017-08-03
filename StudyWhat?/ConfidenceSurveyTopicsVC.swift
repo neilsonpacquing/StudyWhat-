@@ -13,6 +13,7 @@ import UIKit
 class ConfidenceSurveyTopicsViewController: UITableViewController {
     
     var currentSubject : Subject?
+    var topics = [Topic]()
     
     var termToPass: String! = ""
     
@@ -22,6 +23,7 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        topics = currentSubject?.topics?.allObjects as! [Topic]
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +31,7 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let theCount = currentSubject?.topics.count{
+        if let theCount = currentSubject?.topics?.count{
             return theCount
         }
         else{
@@ -53,7 +55,7 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceTopicCell", for: indexPath) as! ConfidenceTopicCell
         print(indexPath.row)
         
-        cell.confidenceTopicLabel.text = currentSubject?.topics[indexPath.row].name
+        cell.confidenceTopicLabel.text = topics[indexPath.row].name
         //cell.confidenceTopicScore.text = String(currentSubject?.topics[indexPath.row].name
         return cell
         
@@ -62,10 +64,10 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 // it doesn't go to the survey but just goes straight to this (count goes back to 0?)
-        let clickedTopic = currentSubject?.topics[indexPath.row]
+        let clickedTopic = topics[indexPath.row]
         
         
-        if clickedTopic?.terms.count == 0 {
+        if clickedTopic.terms?.count == 0 {
 //
             let alert = UIAlertController(title: "Empty!", message: "There are no terms in this topic!", preferredStyle: UIAlertControllerStyle.alert)
             let cancelAction = UIAlertAction(title: "Okay!", style: UIAlertActionStyle.cancel, handler: nil)
@@ -90,7 +92,7 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
-            currentSubject?.topics.remove(at: indexPath.row)
+            topics.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -101,10 +103,10 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
         {
             let destinationController = segue.destination as! TermConfidenceSurveyViewController
             
-            destinationController.terms = (currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!].terms)!
+            destinationController.terms = (topics[(tableView.indexPathForSelectedRow?.row)!].terms)!.allObjects as! [Term]
         } else {
             let nextTopicViewController = segue.destination as! MySubjectsTermsViewController
-            let tappedTopic = currentSubject?.topics[(tableView.indexPathForSelectedRow?.row)!]
+            let tappedTopic = topics[(tableView.indexPathForSelectedRow?.row)!]
             
             nextTopicViewController.currentTopic = tappedTopic
         }

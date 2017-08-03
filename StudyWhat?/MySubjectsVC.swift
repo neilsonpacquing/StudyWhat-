@@ -11,20 +11,22 @@ import UIKit
 
 // made it global in attempt to call it from other function (BAD PRACTICE)
 var subjectsTableData = [Subject]()
-var dateAddTime = [String]()
+//var dateAddTime = [String]()
 
 
 
 class MySubjectsViewController: UITableViewController {
     
     
-    
     override func viewDidLoad() {
+        //made nav controller bar color white such as the "+" button and the back button
+        self.navigationController?.navigationBar.tintColor = .white
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     // viewWillAppear updates when view is going to appear
     override func viewWillAppear(_ animated: Bool) {
+        subjectsTableData = CoreDataHelper.retrieveSubjects()
         tableView.reloadData()
     }
     
@@ -37,13 +39,22 @@ class MySubjectsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjectsTableData.count
     }
+    //saves memory by reusing cells that go off screen
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subjectTableViewCell", for: indexPath) as! SubjectTableViewCell
         print(indexPath.row)
         
-        
+        //for the subject label to be what you make it
         cell.subjectLabel?.text = subjectsTableData[indexPath.row].name
-        cell.numberTopics?.text = "Topics: " + String(subjectsTableData[indexPath.row].topics.count)
+        //adding a String before displaying how many things are in the array within it.
+        if let unwrappedTopics = subjectsTableData[indexPath.row].topics{
+            cell.numberTopics?.text = "Topics: " + String(unwrappedTopics.count)
+        }
+        else{
+            cell.numberTopics?.text = "Topics: 0"
+        }
+        
+        
  //       //new thing attempting to add (for date and time when adding a new subject)
         //cell.detailTextLabel?.text = dateAddTime[indexPath.row]
  //
@@ -54,7 +65,7 @@ class MySubjectsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             performSegue(withIdentifier: "subjectsToTopics", sender: nil)
     }
-    
+    //made the slide to delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
             subjectsTableData.remove(at: indexPath.row)
@@ -79,7 +90,11 @@ class MySubjectsViewController: UITableViewController {
                     return
                 }
                 let subjectStringToAddIntoTableView = subjectAlertTextField.text
-                let newSubject = Subject(name: subjectStringToAddIntoTableView!)
+                
+                let newSubject = CoreDataHelper.newSubject()
+                newSubject.name = subjectStringToAddIntoTableView
+                CoreDataHelper.save()
+                //let newSubject = Subject(name: subjectStringToAddIntoTableView!)
                 subjectsTableData.append(newSubject)
 //                // new stuff trying to add (for date and time adding subject)
 //                let time = Date()
@@ -101,6 +116,7 @@ class MySubjectsViewController: UITableViewController {
         //presents alert to the user
         present(addSubjectAlert, animated: true, completion: nil)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextSubjectViewController = segue.destination as! MySubjectsTopicsViewController
         let tappedSubject = subjectsTableData[(tableView.indexPathForSelectedRow?.row)!]

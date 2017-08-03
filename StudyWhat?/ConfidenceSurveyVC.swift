@@ -15,6 +15,7 @@ class ConfidenceSurveyTableViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.tintColor = .white
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -39,7 +40,7 @@ class ConfidenceSurveyTableViewController: UITableViewController {
         //trying to add this alert controller because when subjects is clicked, it still goes
         let clickedSubject = subjectsTableData[indexPath.row].topics
         
-        if clickedSubject.count == 0 {
+        if clickedSubject?.count == 0 {
             //
             let alert = UIAlertController(title: "Empty!", message: "There are no topics in this Subject!", preferredStyle: UIAlertControllerStyle.alert)
             let cancelAction = UIAlertAction(title: "Okay!", style: UIAlertActionStyle.cancel, handler: nil)

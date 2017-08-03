@@ -12,21 +12,26 @@ import UIKit
 class MySubjectsTermsViewController: UITableViewController {
     
     var currentTopic : Topic?
+    var terms = [Term]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        terms = currentTopic?.terms?.allObjects as! [Term]
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "termsToPastStats"{
             let destination = segue.destination as! PastStatsVC
-            destination.termsOnSurvey = sender as! [Term]
+            destination.termsOnSurvey = terms
         }
     }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let termCountInTopic = (currentTopic?.terms.count){
+        if let termCountInTopic = (currentTopic?.terms?.count){
             return termCountInTopic
         }
         else{
@@ -38,7 +43,7 @@ class MySubjectsTermsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "termTableViewCell", for: indexPath) as! TermTableViewCell
         print(indexPath.row)
 //This gotta be fixed too
-        cell.termLabel.text = currentTopic?.terms[indexPath.row].name      //title
+        cell.termLabel.text = terms[indexPath.row].name      //title
        //new thing attempting to add (for date and time whenadding new term)
 //        cell.detailTextLabel?.text = dateAddTime[indexPath.row]
 
@@ -54,7 +59,7 @@ class MySubjectsTermsViewController: UITableViewController {
 //
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
-            currentTopic?.terms.remove(at: indexPath.row)
+            terms.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -72,9 +77,13 @@ class MySubjectsTermsViewController: UITableViewController {
                 if termAlertTextField.text == "" {
                     return
                 }
+                
                 let termStringToAddIntoTableView = termAlertTextField.text
-                let newTerm = Term(name: termStringToAddIntoTableView!)
-                self.currentTopic?.terms.append(newTerm)
+                let newTerm = CoreDataHelper.newTerm()//Term(name: termStringToAddIntoTableView!)
+                newTerm.name = termStringToAddIntoTableView
+                self.terms.append(newTerm)
+                self.currentTopic?.terms = NSSet(array: self.terms)
+                CoreDataHelper.save()
                 // new stuff trying to add (for date and time when adding a new term)
 //                let time = Date()
 //                let formatter = DateFormatter()
