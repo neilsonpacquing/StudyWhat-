@@ -56,6 +56,11 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
         print(indexPath.row)
         
         cell.confidenceTopicLabel.text = topics[indexPath.row].name
+        if let unwrappedTerms = topics[indexPath.row].terms{
+            cell.numberTerms.text = "Terms: " + String(unwrappedTerms.count)
+        }else{
+            cell.numberTerms.text = "Terms: 0"
+        }
         //cell.confidenceTopicScore.text = String(currentSubject?.topics[indexPath.row].name
         return cell
         
@@ -104,11 +109,11 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
             let destinationController = segue.destination as! TermConfidenceSurveyViewController
             
             destinationController.terms = (topics[(tableView.indexPathForSelectedRow?.row)!].terms)!.allObjects as! [Term]
-        } else {
-            let nextTopicViewController = segue.destination as! MySubjectsTermsViewController
-            let tappedTopic = topics[(tableView.indexPathForSelectedRow?.row)!]
-            
-            nextTopicViewController.currentTopic = tappedTopic
+//        } else {
+//            let nextTopicViewController = segue.destination as! MySubjectsTermsViewController
+//            let tappedTopic = topics[(tableView.indexPathForSelectedRow?.row)!]
+//            
+//            nextTopicViewController.currentTopic = tappedTopic
         }
     }
 

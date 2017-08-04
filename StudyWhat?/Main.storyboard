@@ -274,7 +274,6 @@
                                             <outlet property="leftViewColor" destination="rhm-cr-vhI" id="Bsq-4f-qsl"/>
                                             <outlet property="termLabel" destination="Tt6-W1-04q" id="65S-vn-sEg"/>
                                             <outlet property="termScore" destination="Wj8-eh-kaG" id="YQe-2G-1H4"/>
-                                            <segue destination="HET-od-0UG" kind="show" identifier="termToDefinition" id="Q2A-Mo-9ZP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -330,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceSubjectCell" id="iOH-bS-X8T">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confidenceSubjectCell" id="iOH-bS-X8T" customClass="ConfidenceSubjectTableViewCell" customModule="StudyWhat_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iOH-bS-X8T" id="Xxv-f4-rLh">
@@ -343,7 +342,7 @@
                                             <color key="textColor" red="1" green="0.76497960089999995" blue="0.2773160636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTw-K6-skY">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTw-K6-skY">
                                             <rect key="frame" x="8" y="17" width="359" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -363,6 +362,10 @@
                                         <constraint firstItem="fcM-gX-sI6" firstAttribute="trailing" secondItem="Xxv-f4-rLh" secondAttribute="trailingMargin" id="omW-Vr-XfV"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="confidenceSubject" destination="YTw-K6-skY" id="Zzu-TI-b4J"/>
+                                    <outlet property="numberTopics" destination="vSl-Rw-DR9" id="svS-ME-Kca"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -422,7 +425,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="confidenceTopicLabel" destination="mrr-Jk-X4m" id="OOX-ss-YoR"/>
+                                    <outlet property="confidenceTopicLabel" destination="mrr-Jk-X4m" id="e2T-4E-85F"/>
+                                    <outlet property="numberTerms" destination="gT5-gh-SmZ" id="D9M-sJ-8wX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -635,7 +639,6 @@
                                             <outlet property="leftViewColor" destination="Fzh-dJ-viv" id="20F-Xe-Oyh"/>
                                             <outlet property="termLabel" destination="Dzj-Ts-Lqx" id="UiZ-Jc-GD0"/>
                                             <outlet property="termScore" destination="G4P-oX-rHD" id="WgM-Zk-cse"/>
-                                            <segue destination="HET-od-0UG" kind="show" identifier="termToDefinition" id="3RQ-6c-XUi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -847,6 +850,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SNV-4d-LCZ"/>
-        <segue reference="3RQ-6c-XUi"/>
     </inferredMetricsTieBreakers>
 </document>

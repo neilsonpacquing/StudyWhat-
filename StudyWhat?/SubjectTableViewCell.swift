@@ -12,7 +12,7 @@ class SubjectTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var numberTopics: UILabel!
-    @IBOutlet weak var leftViewColor: UIView!
+    //@IBOutlet weak var leftViewColor: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

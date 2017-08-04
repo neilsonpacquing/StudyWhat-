@@ -30,9 +30,14 @@ class ConfidenceSurveyTableViewController: UITableViewController {
         return subjectsTableData.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceSubjectCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "confidenceSubjectCell", for: indexPath) as! ConfidenceSubjectTableViewCell
         print(indexPath.row)
-        cell.textLabel?.text = subjectsTableData[indexPath.row].name
+        cell.confidenceSubject?.text = subjectsTableData[indexPath.row].name
+        if let unwrappedTopics = subjectsTableData[indexPath.row].topics{
+            cell.numberTopics?.text = "Topics " + String(unwrappedTopics.count)
+        }else{
+            cell.numberTopics?.text = "Topics: 0"
+        }
         return cell
     }
     // when clicked, it will perform the segway link and has a way back

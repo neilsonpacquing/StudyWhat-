@@ -10,7 +10,7 @@ import UIKit
 
 class TopicTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var leftViewColor: UIView!
+    //@IBOutlet weak var leftViewColor: UIView!
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var numberOfTerms: UILabel!
     override func awakeFromNib() {

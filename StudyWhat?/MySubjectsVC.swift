@@ -54,8 +54,7 @@ class MySubjectsViewController: UITableViewController {
         //adding a String before displaying how many things are in the array within it.
         if let unwrappedTopics = subjectsTableData[indexPath.row].topics{
             cell.numberTopics?.text = "Topics: " + String(unwrappedTopics.count)
-        }
-        else{
+        }else{
             cell.numberTopics?.text = "Topics: 0"
         }
         
