@@ -25,6 +25,7 @@ class MySubjectsTopicsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
         topics = currentSubject?.topics?.allObjects as! [Topic]
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,8 +72,10 @@ class MySubjectsTopicsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
             CoreDataHelper.delete(topic: topics[indexPath.row])
-            CoreDataHelper.save()
             topics.remove(at: indexPath.row)
+            currentSubject?.topics = NSSet(array: topics)
+            CoreDataHelper.save()
+
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

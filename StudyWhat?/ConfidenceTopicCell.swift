@@ -11,7 +11,7 @@ import UIKit
 class ConfidenceTopicCell: UITableViewCell {
 
     @IBOutlet weak var confidenceTopicLabel: UILabel!
-    @IBOutlet weak var confidenceTopicScore: UILabel!
+    //@IBOutlet weak var confidenceTopicScore: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -43,7 +43,12 @@ class MySubjectsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subjectTableViewCell", for: indexPath) as! SubjectTableViewCell
         print(indexPath.row)
-        
+//        //attempting to alternate colors for cells
+//        if indexPath.row % 2 == 0 {
+//            cell.backgroundColor = UIColor.white
+//        }else{
+//            cell.backgroundColor = UIColor.lightGray
+//        }
         //for the subject label to be what you make it
         cell.subjectLabel?.text = subjectsTableData[indexPath.row].name
         //adding a String before displaying how many things are in the array within it.
@@ -70,8 +75,11 @@ class MySubjectsViewController: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.delete){
             //deletes certain Subject in row.
             CoreDataHelper.delete(subject: subjectsTableData[indexPath.row])
+            // need to remove count and take out the colored view
+            //cell.numberTopics?.text = "Topics: " + String(unwrappedTopics.count -= 1)
             CoreDataHelper.save()
             subjectsTableData.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

@@ -59,7 +59,11 @@ class MySubjectsTermsViewController: UITableViewController {
 //
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
+            CoreDataHelper.delete(term: terms[indexPath.row])
             terms.remove(at: indexPath.row)
+            currentTopic?.terms = NSSet(array: terms)
+            print(terms.count)
+            CoreDataHelper.save()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

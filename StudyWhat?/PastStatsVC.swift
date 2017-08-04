@@ -169,9 +169,10 @@ extension PastStatsVC: UITableViewDelegate, UITableViewDataSource
     {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             CoreDataHelper.delete(term: termsOnSurvey[indexPath.row])
-            CoreDataHelper.save()
             termsOnSurvey.remove(at: indexPath.row)
+            currentTopic?.terms = NSSet(array: termsOnSurvey)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            CoreDataHelper.save()
         }
     }
 }
