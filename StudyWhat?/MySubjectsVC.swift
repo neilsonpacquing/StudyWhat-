@@ -68,6 +68,9 @@ class MySubjectsViewController: UITableViewController {
     //made the slide to delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
+            //deletes certain Subject in row.
+            CoreDataHelper.delete(subject: subjectsTableData[indexPath.row])
+            CoreDataHelper.save()
             subjectsTableData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

@@ -5,6 +5,7 @@
 //  Created by Neilson Pacquing on 8/3/17.
 //  Copyright © 2017 Neilson Pacquing. All rights reserved.
 //
+//GOTTA MAKE IT EDITABLE AND BE ABLE TO BE SAVED WHEN THE CERTAIN TERM IS PRESSED.
 
 import UIKit
 

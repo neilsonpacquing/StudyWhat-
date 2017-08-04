@@ -70,6 +70,8 @@ class MySubjectsTopicsViewController: UITableViewController {
     //made it so that you can slide to delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete){
+            CoreDataHelper.delete(topic: topics[indexPath.row])
+            CoreDataHelper.save()
             topics.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

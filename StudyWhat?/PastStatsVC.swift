@@ -52,6 +52,7 @@ class PastStatsVC: UIViewController {
                 //                formatter.dateFormat = "MMM dd, yyyy (hh:mm)"
                 //                let result = formatter.string(from: time)
                 //                dateAddTime.append(result)
+                //sorts from lowest to highest score
                 self.termsOnSurvey.sort(by: {$0.confidenceScore < $1.confidenceScore})
                 self.pastStatsTableView.reloadData()
                 
@@ -166,8 +167,9 @@ extension PastStatsVC: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
-        if (editingStyle == UITableViewCellEditingStyle.delete)
-        {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            CoreDataHelper.delete(term: termsOnSurvey[indexPath.row])
+            CoreDataHelper.save()
             termsOnSurvey.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
