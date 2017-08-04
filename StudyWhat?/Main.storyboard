@@ -254,7 +254,7 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhm-cr-vhI">
                                                     <rect key="frame" x="0.0" y="0.0" width="4" height="44"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.35086595330937026" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="4" id="KMI-28-9LT"/>
                                                     </constraints>
@@ -318,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNL-ib-yXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4541.6000000000004" y="-347.67616191904051"/>
+            <point key="canvasLocation" x="3750" y="-347"/>
         </scene>
         <!--Confidence Survey Subject-->
         <scene sceneID="h43-mr-eFJ">
@@ -623,7 +623,7 @@
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzh-dJ-viv">
                                                     <rect key="frame" x="0.0" y="0.0" width="4" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.050980392159999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.35086595329999998" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -694,7 +694,7 @@
             </objects>
             <point key="canvasLocation" x="4541.6000000000004" y="500.59970014992507"/>
         </scene>
-        <!--Definition View Controller-->
+        <!--Title-->
         <scene sceneID="zSh-K7-ZrI">
             <objects>
                 <viewController id="HET-od-0UG" customClass="DefinitionViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
@@ -775,6 +775,9 @@
                             <constraint firstItem="KMQ-PY-5yg" firstAttribute="leading" secondItem="8Pa-pr-Bhd" secondAttribute="leadingMargin" constant="24" id="qPS-EB-lh9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="1VE-dN-x0n">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="rlP-n9-KTp"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="termDefinition" destination="aG3-3G-B8o" id="oLU-Eb-sGR"/>
                         <outlet property="termLabel" destination="KMQ-PY-5yg" id="dl1-Xe-f4a"/>
@@ -782,7 +785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVb-F6-fQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5365.6000000000004" y="23.838080959520241"/>
+            <point key="canvasLocation" x="5665" y="-349"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -849,6 +852,6 @@
         <image name="simson-petrol-110900" width="2143" height="3215"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SNV-4d-LCZ"/>
+        <segue reference="Mxa-G4-zqu"/>
     </inferredMetricsTieBreakers>
 </document>

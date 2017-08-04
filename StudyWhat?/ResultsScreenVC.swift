@@ -60,13 +60,13 @@ class ResultsScreenViewController: UIViewController, UITableViewDelegate, UITabl
         cell.termScore.text = String(termsOnSurvey[indexPath.row].confidenceScore)
         //made it so that terms on survey 
         if termsOnSurvey[indexPath.row].confidenceScore >= 0 && termsOnSurvey[indexPath.row].confidenceScore <= 3 {
-            cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 13/255, blue: 0/255, alpha: 1)//red
+            cell.leftViewColor.backgroundColor = UIColor(red: 244/255, green: 89/255, blue: 81/255, alpha: 1)//red
         }
         if termsOnSurvey[indexPath.row].confidenceScore >= 4 && termsOnSurvey[indexPath.row].confidenceScore <= 7 {
             cell.leftViewColor.backgroundColor = UIColor(red: 255/255, green: 198/255, blue: 0/255, alpha: 1)//yellow
         }
         if termsOnSurvey[indexPath.row].confidenceScore >= 8 {
-            cell.leftViewColor.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 31/255, alpha: 1)//green
+            cell.leftViewColor.backgroundColor = UIColor(red: 75/255, green: 184/255, blue: 84/255, alpha: 1)//green
         }
         return cell
         
