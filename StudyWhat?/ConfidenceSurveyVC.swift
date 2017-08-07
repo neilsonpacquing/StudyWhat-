@@ -34,7 +34,7 @@ class ConfidenceSurveyTableViewController: UITableViewController {
         print(indexPath.row)
         cell.confidenceSubject?.text = subjectsTableData[indexPath.row].name
         if let unwrappedTopics = subjectsTableData[indexPath.row].topics{
-            cell.numberTopics?.text = "Topics " + String(unwrappedTopics.count)
+            cell.numberTopics?.text = "Topics: " + String(unwrappedTopics.count)
         }else{
             cell.numberTopics?.text = "Topics: 0"
         }

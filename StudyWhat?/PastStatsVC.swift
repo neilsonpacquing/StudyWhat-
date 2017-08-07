@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PastStatsVC: UIViewController {
+class PastStatsVC: UIViewController, UITabBarControllerDelegate {
     
-    var termsOnSurvey = [Term]()
+
     var currentTopic : Topic?
     //var terms = [Term]()
     
@@ -18,6 +18,8 @@ class PastStatsVC: UIViewController {
     @IBOutlet weak var pastStatsTableView: UITableView!
 
     @IBOutlet weak var pastTermAverageScoreCL: UILabel!
+    
+    var termsOnSurvey = [Term]()
 //    @IBAction func pastStatsToCSS(_ sender: Any) {
 //        performSegue(withIdentifier: "pastStatsToCSS", sender: nil)
     @IBAction func pastStatsToSurvey(_ sender: UIButton) {
@@ -55,6 +57,7 @@ class PastStatsVC: UIViewController {
                 self.termsOnSurvey.append(newTerm)
                 self.currentTopic?.terms = NSSet(array: self.termsOnSurvey)
                 CoreDataHelper.save()
+                
                 // new stuff trying to add (for date and time when adding a new term)
                 //                let time = Date()
                 //                let formatter = DateFormatter()
@@ -65,6 +68,7 @@ class PastStatsVC: UIViewController {
                 //sorts from lowest to highest score
                 self.termsOnSurvey.sort(by: {$0.confidenceScore < $1.confidenceScore})
                 self.pastStatsTableView.reloadData()
+                self.calculateTermAverage()
                 
             }
         }
@@ -80,9 +84,7 @@ class PastStatsVC: UIViewController {
 //        tableView.estimatedRowHeight = tableView.rowHeight
 //        tableView.rowHeight = UITableViewAutomaticDimension
         //sorted cells from lowest to highest term based on score.
-        termsOnSurvey.sort { (term1, term2) -> Bool in
-            return term1.confidenceScore < term2.confidenceScore
-        }
+
 
         print(termsOnSurvey.count)
         pastStatsTableView.delegate = self
@@ -94,9 +96,32 @@ class PastStatsVC: UIViewController {
         pastStatsTableView.layer.cornerRadius = 8         //made corners rounded
         pastStatsTableView.clipsToBounds = true
         calculateTermAverage()
+        self.tabBarController?.delegate = self
         
-        termsOnSurvey.sort(by: {$0.confidenceScore < $1.confidenceScore})
+//        termsOnSurvey.sort(by: {$0.confidenceScore < $1.confidenceScore})
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        termsOnSurvey = CoreDataHelper.retrieveTerms()
+        termsOnSurvey.sort { (term1, term2) -> Bool in
+            return term1.confidenceScore < term2.confidenceScore
+        }
+        pastStatsTableView.reloadData()
+        calculateTermAverage()
+
+
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 0 {
+            print("selected")
+            self.viewWillAppear(true)
+        }
+    }
+    
+    
+    
+    
     func calculateTermAverage() {
         var total = 0
         for term in termsOnSurvey {

@@ -16,6 +16,7 @@ class ResultsScreenViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var resultsTableView: UITableView!
 
     //made customizations to the tableview
+
     override func viewDidLoad() {
         termsOnSurvey.sort { (term1, term2) -> Bool in
             return term1.confidenceScore < term2.confidenceScore

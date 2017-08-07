@@ -18,6 +18,7 @@
 		83A51C831F1D7E270048DDD6 /* MySubjectsTermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A51C821F1D7E270048DDD6 /* MySubjectsTermsVC.swift */; };
 		83A51C851F1D7FB40048DDD6 /* ConfidenceSurveyTopicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A51C841F1D7FB40048DDD6 /* ConfidenceSurveyTopicsVC.swift */; };
 		83A51C8D1F1EC00E0048DDD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A51C8C1F1EC00E0048DDD6 /* Main.storyboard */; };
+		83AC7A8D1F392A2A003EE1B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC7A8C1F392A2A003EE1B2 /* ViewController.swift */; };
 		83C526B51F350CD40059B9BC /* ConfidenceSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C526B41F350CD40059B9BC /* ConfidenceSubjectTableViewCell.swift */; };
 		83D4304B1F2D0BE100D1A7A2 /* PastStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4304A1F2D0BE100D1A7A2 /* PastStatsVC.swift */; };
 		83D4304D1F2D6E1C00D1A7A2 /* PastStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4304C1F2D6E1C00D1A7A2 /* PastStatsTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 		83A51C821F1D7E270048DDD6 /* MySubjectsTermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySubjectsTermsVC.swift; sourceTree = "<group>"; };
 		83A51C841F1D7FB40048DDD6 /* ConfidenceSurveyTopicsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceSurveyTopicsVC.swift; sourceTree = "<group>"; };
 		83A51C8C1F1EC00E0048DDD6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		83AC7A8C1F392A2A003EE1B2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		83C526B41F350CD40059B9BC /* ConfidenceSubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		83D4304A1F2D0BE100D1A7A2 /* PastStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastStatsVC.swift; sourceTree = "<group>"; };
 		83D4304C1F2D6E1C00D1A7A2 /* PastStatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastStatsTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				83F972321F2164950082ECD8 /* TermConfidenceSurveyVC.swift */,
 				8361C5561F22A02E0026E400 /* ResultsScreenVC.swift */,
 				83FD35F71F33CD5100021BD2 /* DefinitionViewController.swift */,
+				83AC7A8C1F392A2A003EE1B2 /* ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -141,10 +144,10 @@
 			children = (
 				83F956561F2FEDF100F77BB9 /* SubjectTableViewCell.swift */,
 				83F956581F2FFACB00F77BB9 /* TopicTableViewCell.swift */,
+				83D4304C1F2D6E1C00D1A7A2 /* PastStatsTableViewCell.swift */,
 				83F75DF91F30C23E00C847D9 /* TermTableViewCell.swift */,
 				83C526B41F350CD40059B9BC /* ConfidenceSubjectTableViewCell.swift */,
 				83F987721F295BBE0017DB52 /* ConfidenceTopicCell.swift */,
-				83D4304C1F2D6E1C00D1A7A2 /* PastStatsTableViewCell.swift */,
 				83F987741F295DF90017DB52 /* ResultScreenTermCell.swift */,
 			);
 			name = Views;
@@ -241,6 +244,7 @@
 				83F956571F2FEDF100F77BB9 /* SubjectTableViewCell.swift in Sources */,
 				83A51C851F1D7FB40048DDD6 /* ConfidenceSurveyTopicsVC.swift in Sources */,
 				83F75DFA1F30C23E00C847D9 /* TermTableViewCell.swift in Sources */,
+				83AC7A8D1F392A2A003EE1B2 /* ViewController.swift in Sources */,
 				8301AF761F1D19C7009C0E12 /* MySubjectsVC.swift in Sources */,
 				83F987731F295BBE0017DB52 /* ConfidenceTopicCell.swift in Sources */,
 			);

@@ -787,10 +787,10 @@
             </objects>
             <point key="canvasLocation" x="4542" y="-348"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="ViewController" customModule="StudyWhat_" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -829,7 +829,7 @@
         <scene sceneID="La8-vO-Lfv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tg8-t3-wvZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Confidence Survey" image="icons8-Survey-25" selectedImage="icons8-Survey-25" id="VUn-h2-RTA"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Confidence Survey" image="icons8-Survey-25" selectedImage="icons8-Survey-25" id="VUn-h2-RTA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yq0-Vo-urf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
