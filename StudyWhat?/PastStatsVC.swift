@@ -21,7 +21,17 @@ class PastStatsVC: UIViewController {
 //    @IBAction func pastStatsToCSS(_ sender: Any) {
 //        performSegue(withIdentifier: "pastStatsToCSS", sender: nil)
     @IBAction func pastStatsToSurvey(_ sender: UIButton) {
+//making it so that the button cannot go to confidence survey if there are no terms within it
+        
+        if termsOnSurvey.count == 0 {
+            //
+            let alert = UIAlertController(title: "No Terms!", message: "There are no terms in this topic to take the survey!", preferredStyle: UIAlertControllerStyle.alert)
+            let cancelAction = UIAlertAction(title: "Okay!", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+        }else{
         performSegue(withIdentifier: "pastStatsToSurvey", sender: nil)
+        }
     }
     //override
     
