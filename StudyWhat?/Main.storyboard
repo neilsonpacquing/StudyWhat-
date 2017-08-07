@@ -220,7 +220,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzT-Oz-m0t">
                                 <rect key="frame" x="16" y="569" width="343" height="41"/>
-                                <color key="backgroundColor" red="0.99888914819999997" green="0.70603144169999998" blue="0.01802056283" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.70588235294117641" blue="0.015686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Rate Your Confidence">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -493,7 +493,7 @@
                                 <rect key="frame" x="281" y="73" width="94" height="537"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="&gt;&gt;">
-                                    <color key="titleColor" red="0.99888914823532104" green="0.7060314416885376" blue="0.018020562827587128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="0.70588235294117641" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="NextButton:" destination="Qup-sy-U26" eventType="touchUpInside" id="XZe-iw-mXK"/>
@@ -506,7 +506,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="&lt;&lt;">
-                                    <color key="titleColor" red="0.99847203490000003" green="0.73389047380000005" blue="0.0027440304400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="0.70588235294117641" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="BackTermButton:" destination="Qup-sy-U26" eventType="touchUpInside" id="9kw-gf-8tY"/>
