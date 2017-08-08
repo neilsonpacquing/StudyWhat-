@@ -207,6 +207,9 @@ extension PastStatsVC: UITableViewDelegate, UITableViewDataSource
             termsOnSurvey.remove(at: indexPath.row)
             currentTopic?.terms = NSSet(array: termsOnSurvey)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            //when deleted, will update accordingly
+            pastStatsTableView.reloadData()
+            self.calculateTermAverage()
             CoreDataHelper.save()
         }
     }
