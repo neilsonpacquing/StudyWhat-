@@ -102,7 +102,6 @@ class PastStatsVC: UIViewController, UITabBarControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        termsOnSurvey = CoreDataHelper.retrieveTerms()
         termsOnSurvey.sort { (term1, term2) -> Bool in
             return term1.confidenceScore < term2.confidenceScore
         }
