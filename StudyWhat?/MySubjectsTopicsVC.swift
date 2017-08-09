@@ -131,12 +131,12 @@ class MySubjectsTopicsViewController: UITableViewController {
             let destinationController = segue.destination as! PastStatsVC
             
             destinationController.termsOnSurvey = (topics[(tableView.indexPathForSelectedRow?.row)!].terms?.allObjects as! [Term])
-            for aTerm in destinationController.termsOnSurvey{
-                print(aTerm.name)
-            }
+//            for aTerm in destinationController.termsOnSurvey{
+//                print(aTerm.name)
+//            }
             destinationController.currentTopic = topics[(tableView.indexPathForSelectedRow?.row)!]
-            print(destinationController.currentTopic?.name)
-            print(destinationController.currentTopic?.terms?.count)
+//            print(destinationController.currentTopic?.name)
+//            print(destinationController.currentTopic?.terms?.count)
         }
     }
 
