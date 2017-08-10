@@ -15,7 +15,9 @@ class ConfidenceTopicCell: UITableViewCell {
     //@IBOutlet weak var confidenceTopicScore: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -19,6 +19,8 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = currentSubject?.name
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +69,6 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
     }
     // when clicked, it will perform the segway link and has a way back
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
 // it doesn't go to the survey but just goes straight to this (count goes back to 0?)
         let clickedTopic = topics[indexPath.row]
         
@@ -82,13 +83,12 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
             
         }else{
             
-            if navigationItem.title == "Confidence Survey Topic"
-            {
+     
                 //tableView.reloadData()
                 //termToPass = currentSubject?.topics[indexPath.row].terms[indexPath.row].name
                 performSegue(withIdentifier: "topicToTermSurvey", sender: self)
                 
-            }
+            
         }
     }
     
@@ -115,6 +115,7 @@ class ConfidenceSurveyTopicsViewController: UITableViewController {
 //            
 //            nextTopicViewController.currentTopic = tappedTopic
         }
+        
     }
 
 }

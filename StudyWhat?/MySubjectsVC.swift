@@ -22,6 +22,7 @@ class MySubjectsViewController: UITableViewController {
         //made nav controller bar color white such as the "+" button and the back button
         self.navigationController?.navigationBar.tintColor = .white
         super.viewDidLoad()
+        //navigationController?.navigationBar.title
         // Do any additional setup after loading the view, typically from a nib.
     }
     // viewWillAppear updates when view is going to appear

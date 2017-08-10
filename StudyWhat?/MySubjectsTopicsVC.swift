@@ -20,6 +20,7 @@ class MySubjectsTopicsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = currentSubject?.name
     }
     
     override func viewWillAppear(_ animated: Bool) {
