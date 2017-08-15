@@ -46,7 +46,7 @@ class CoreDataHelper {  //provides automated and generalized solutions to common
     }
     
 
-    //SUBJECT
+    //SUBJECT Information
     //static methods will go here   (methods thatcan be called directly on the class)
     static func newSubject() -> Subject {     //(create Subject object and returns it)
         print(managedContext)
@@ -64,7 +64,7 @@ class CoreDataHelper {  //provides automated and generalized solutions to common
         }
         return []
     }
-    //TOPIC
+    //TOPIC information
     static func newTopic() -> Topic {     //(create topic object and returns it)
         let topic = NSEntityDescription.insertNewObject(forEntityName: "Topic", into: managedContext) as! Topic
         return topic
@@ -83,7 +83,7 @@ class CoreDataHelper {  //provides automated and generalized solutions to common
         }
         return []
     }
-    //TERM
+    //TERM information
     static func newTerm() -> Term {     //(create term object and returns it)
         let term = NSEntityDescription.insertNewObject(forEntityName: "Term", into: managedContext) as! Term
         return term
